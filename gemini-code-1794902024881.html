@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bộ 05 Đề thi Tốt nghiệp THPT môn Lịch sử 2027 - Ma trận 01</title>
+  <style>
+    :root {
+      --bg-page: #F6F4EF;
+      --bg-card: #FFFFFF;
+      --bg-soft: #EFECE4;
+      --primary: #8B1E1E;
+      --primary-dark: #611212;
+      --accent: #C58A2A;
+      --text-main: #231F20;
+      --text-muted: #5A534E;
+      --border: #DCD5C7;
+      --ok-bg: #E6F4EA;
+      --ok-border: #1E8E3E;
+      --ok-text: #137333;
+      --err-bg: #FCE8E6;
+      --err-border: #D93025;
+      --err-text: #C5221F;
+      --radius: 12px;
+      --shadow: 0 3px 12px rgba(35, 31, 32, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-size: 16px;
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #FFFDF9;
+      padding: 22px 16px;
+      text-align: center;
+      border-bottom: 4px solid var(--accent);
+    }
+
+    header h1 {
+      font-size: 1.55rem;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.92;
+    }
+
+    /* Top Control Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 10px 16px;
+    }
+
+    .top-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .exam-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .exam-tab {
+      background-color: var(--bg-soft);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .exam-tab:hover {
+      border-color: var(--primary);
+    }
+
+    .exam-tab.active {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .timer-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .timer-box {
+      background-color: #FFF7E6;
+      border: 2px solid var(--accent);
+      color: var(--primary-dark);
+      font-weight: 800;
+      font-size: 1.05rem;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer-box.urgent {
+      background-color: var(--err-bg);
+      border-color: var(--err-border);
+      color: var(--err-text);
+    }
+
+    .btn {
+      background-color: var(--primary);
+      color: #FFFFFF;
+      border: none;
+      padding: 9px 16px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      min-height: 42px;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-outline {
+      background-color: #FFFFFF;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--bg-soft);
+    }
+
+    .btn-submit {
+      background-color: #137333;
+    }
+
+    .btn-submit:hover {
+      background-color: #0D5626;
+    }
+
+    /* Main Layout */
+    .container {
+      max-width: 1140px;
+      margin: 20px auto 0;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 1fr 290px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .exam-header-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .exam-header-card h2 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .part-title {
+      background-color: var(--primary);
+      color: #FFFFFF;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 24px 0 16px;
+    }
+
+    .q-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 84px;
+    }
+
+    .q-title {
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 1.02rem;
+    }
+
+    .q-level {
+      display: inline-block;
+      background-color: var(--bg-soft);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      padding: 1px 8px;
+      border-radius: 6px;
+      margin-right: 6px;
+      border: 1px solid var(--border);
+    }
+
+    /* Part I Options */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .opt-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background-color: #FAF9F6;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .opt-label:hover:not(.locked) {
+      border-color: var(--accent);
+      background-color: #FFFBF2;
+    }
+
+    .opt-label.selected {
+      border-color: var(--primary);
+      background-color: #FDF2F2;
+      font-weight: 600;
+    }
+
+    .opt-label.correct-ans {
+      background-color: var(--ok-bg) !important;
+      border-color: var(--ok-border) !important;
+      color: var(--ok-text);
+      font-weight: 700;
+    }
+
+    .opt-label.wrong-ans {
+      background-color: var(--err-bg) !important;
+      border-color: var(--err-border) !important;
+      color: var(--err-text);
+    }
+
+    .opt-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: #E8E2D5;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .opt-label.selected .opt-badge {
+      background-color: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .opt-label.correct-ans .opt-badge {
+      background-color: var(--ok-border);
+      color: #FFFFFF;
+    }
+
+    .opt-label.wrong-ans .opt-badge {
+      background-color: var(--err-border);
+      color: #FFFFFF;
+    }
+
+    /* Part II Passage & Table */
+    .passage-box {
+      background-color: #FAF7F0;
+      border-left: 4px solid var(--accent);
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 14px;
+      font-size: 0.98rem;
+    }
+
+    .passage-source {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: right;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      font-size: 0.95rem;
+      background-color: #FFFFFF;
+    }
+
+    .data-table th, .data-table td {
+      border: 1px solid #C8BFA9;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .data-table th {
+      background-color: #ECE5D5;
+      font-weight: 700;
+    }
+
+    .tf-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      background-color: #FAF9F6;
+    }
+
+    .tf-row.row-ok {
+      background-color: var(--ok-bg);
+      border-color: var(--ok-border);
+    }
+
+    .tf-row.row-err {
+      background-color: var(--err-bg);
+      border-color: var(--err-border);
+    }
+
+    .tf-text {
+      flex: 1;
+    }
+
+    .tf-btns {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .tf-btn {
+      padding: 8px 14px;
+      border: 2px solid var(--border);
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      min-width: 68px;
+      transition: all 0.15s;
+    }
+
+    .tf-btn.active-true {
+      background-color: #1A73E8;
+      border-color: #1A73E8;
+      color: #FFFFFF;
+    }
+
+    .tf-btn.active-false {
+      background-color: #E37400;
+      border-color: #E37400;
+      color: #FFFFFF;
+    }
+
+    .tf-btn.ans-right {
+      background-color: var(--ok-border) !important;
+      border-color: var(--ok-border) !important;
+      color: #FFFFFF !important;
+    }
+
+    .tf-btn.ans-wrong {
+      background-color: var(--err-border) !important;
+      border-color: var(--err-border) !important;
+      color: #FFFFFF !important;
+    }
+
+    .explain-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      background-color: #F0F4F8;
+      border-left: 4px solid #1A73E8;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    .explain-box.show {
+      display: block;
+    }
+
+    /* Sidebar Question Palette */
+    .sidebar {
+      position: sticky;
+      top: 76px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar h3 {
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .palette-section-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin: 10px 0 6px;
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 6px;
+    }
+
+    .pal-btn {
+      aspect-ratio: 1;
+      border: 1px solid var(--border);
+      background-color: #FAF9F6;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pal-btn.done {
+      background-color: #2B5B84;
+      color: #FFFFFF;
+      border-color: #2B5B84;
+    }
+
+    .pal-btn.partial {
+      background-color: #F29900;
+      color: #FFFFFF;
+      border-color: #F29900;
+    }
+
+    .pal-btn.pal-ok {
+      background-color: var(--ok-border) !important;
+      color: #FFFFFF !important;
+      border-color: var(--ok-border) !important;
+    }
+
+    .pal-btn.pal-err {
+      background-color: var(--err-border) !important;
+      color: #FFFFFF !important;
+      border-color: var(--err-border) !important;
+    }
+
+    .legend-list {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    /* Result Banner */
+    .result-card {
+      background: linear-gradient(135deg, #231F20, #3E3532);
+      color: #FFFDF9;
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 20px;
+      border: 2px solid var(--accent);
+      display: none;
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .stat-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 12px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .stat-box .val {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #F6C358;
+    }
+
+    .stat-box .lbl {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+        order: -1;
+      }
+      .palette-grid {
+        grid-template-columns: repeat(8, 1fr);
+      }
+      .result-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .tf-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .tf-btns {
+        width: 100%;
+      }
+      .tf-btn {
+        flex: 1;
+      }
+      .palette-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>LUYỆN THI TỐT NGHIỆP THPT MÔN LỊCH SỬ 2027</h1>
+    <p>Bộ 05 Đề thi chuẩn Ma trận 01 • Thời gian: 50 phút • Chấm điểm tự động theo quy chế Bộ GD&ĐT</p>
+  </header>
+
+  <div class="top-bar">
+    <div class="top-inner">
+      <div class="exam-tabs" id="exam-tabs">
+        <button class="exam-tab active" onclick="loadExam(0)">Đề số 01</button>
+        <button class="exam-tab" onclick="loadExam(1)">Đề số 02</button>
+        <button class="exam-tab" onclick="loadExam(2)">Đề số 03</button>
+        <button class="exam-tab" onclick="loadExam(3)">Đề số 04</button>
+        <button class="exam-tab" onclick="loadExam(4)">Đề số 05</button>
+      </div>
+
+      <div class="timer-controls">
+        <div class="timer-box" id="timer-display">⏱ 50:00</div>
+        <button class="btn btn-outline" id="btn-start" onclick="toggleTimer()">Bắt đầu tính giờ</button>
+        <button class="btn btn-submit" id="btn-submit" onclick="submitExam()">Nộp bài & Chấm điểm</button>
+        <button class="btn btn-outline" onclick="resetCurrentExam()">Làm lại đề</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <main id="exam-main">
+      <!-- Bảng kết quả sau khi nộp bài -->
+      <div class="result-card" id="result-card">
+        <h2 style="color: #F6C358; font-size: 1.35rem;">KẾT QUẢ BÀI LÀM - <span id="res-exam-title"></span></h2>
+        <div class="result-grid">
+          <div class="stat-box">
+            <div class="val" id="res-total">0.00 / 10</div>
+            <div class="lbl">TỔNG ĐIỂM</div>
+          </div>
+          <div class="stat-box">
+            <div class="val" id="res-p1">0.00 / 6.0</div>
+            <div class="lbl">Phần I (24 câu)</div>
+          </div>
+          <div class="stat-box">
+            <div class="val" id="res-p2">0.00 / 4.0</div>
+            <div class="lbl">Phần II (4 câu lớn)</div>
+          </div>
+          <div class="stat-box">
+            <div class="val" id="res-time">00:00</div>
+            <div class="lbl">Thời gian làm bài</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exam-header-card">
+        <h2 id="exam-title">ĐỀ THI TỐT NGHIỆP THPT MÔN LỊCH SỬ - ĐỀ SỐ 01</h2>
+        <p style="color: var(--text-muted);">Cấu trúc: Phần I (24 câu trắc nghiệm 4 lựa chọn = 6,0 điểm) & Phần II (4 câu trắc nghiệm Đúng/Sai = 4,0 điểm).</p>
+      </div>
+
+      <div id="questions-area"></div>
+    </main>
+
+    <aside class="sidebar">
+      <h3>Bảng theo dõi câu hỏi</h3>
+      <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 6px;">
+        Đã hoàn thành: <strong id="progress-text">0 / 28</strong> câu
+      </div>
+
+      <div class="palette-section-label">PHẦN I (24 câu × 0,25đ)</div>
+      <div class="palette-grid" id="palette-p1"></div>
+
+      <div class="palette-section-label">PHẦN II (4 câu × 1,0đ)</div>
+      <div class="palette-grid" id="palette-p2"></div>
+
+      <div class="legend-list">
+        <div class="legend-item"><span class="dot" style="background:#FAF9F6;border:1px solid #DCD5C7;"></span> Chưa làm</div>
+        <div class="legend-item"><span class="dot" style="background:#2B5B84;"></span> Đã chọn</div>
+        <div class="legend-item"><span class="dot" style="background:#1E8E3E;"></span> Đúng</div>
+        <div class="legend-item"><span class="dot" style="background:#D93025;"></span> Sai</div>
+      </div>
+
+      <button class="btn btn-submit" style="width: 100%; margin-top: 16px;" onclick="submitExam()">Nộp bài ngay</button>
+    </aside>
+  </div>
+
+  <script>
+    // DỮ LIỆU ĐẦY ĐỦ 05 ĐỀ THI TỐT NGHIỆP THPT MÔN LỊCH SỬ 2027 - MA TRẬN 01
+    const EXAMS_DATA = [
+      // ==================== ĐỀ SỐ 01 ====================
+      {
+        title: "ĐỀ THI TỐT NGHIỆP THPT MÔN LỊCH SỬ - ĐỀ SỐ 01",
+        part1: [
+          { lv: "NB", q: "Thời cổ đại, ở phương Đông hình thành bốn trung tâm văn minh lớn là", opts: ["Ai Cập, Lưỡng Hà, Hy Lạp, Ấn Độ.", "La Mã, Trung Quốc, Ấn Độ, Lưỡng Hà.", "Ai Cập, Lưỡng Hà, Ấn Độ, Trung Quốc.", "Hy Lạp, La Mã, Ai Cập, Trung Quốc."], ans: 2 },
+          { lv: "TH", q: "Trong cuộc cách mạng công nghiệp lần thứ nhất ở thế kỉ XVIII - XIX, phát minh kĩ thuật nào đã tạo ra bước chuyển căn bản trong nền sản xuất tư bản chủ nghĩa?", opts: ["Động cơ đốt trong.", "Máy kéo sợi Gien-ni.", "Máy tính điện tử.", "Máy hơi nước."], ans: 3 },
+          { lv: "NB", q: "Văn minh Văn Lang - Âu Lạc thuộc nền văn hóa nào sau đây?", opts: ["Văn hóa Đông Sơn.", "Văn hóa Óc Eo.", "Văn hóa Sa Huỳnh.", "Văn hóa Hòa Bình."], ans: 0 },
+          { lv: "TH", q: "Về phong tục, tập quán, lễ hội của người Kinh khác hầu hết các dân tộc thiểu số là liên quan đến", opts: ["chu kì thời gian/ thời tiết.", "chu kì vòng đời.", "chu kì canh tác.", "chu kì Mặt Trăng."], ans: 0 },
+          { lv: "NB", q: "Các cuộc cách mạng tư sản (giữa thế kỉ XVI đến đầu thế kỉ XX) nổ ra và thắng lợi xuất phát từ tiền đề nào sau đây?", opts: ["Tiền đề về kinh tế.", "Tiền đề về văn hóa.", "Tiền đề về kỹ thuật.", "Tiền đề về quân sự."], ans: 0 },
+          { lv: "TH", q: "Mục tiêu đấu tranh của các cuộc cách mạng tư sản từ giữa thế kỉ XVI đến đầu thế kỉ XX có điểm chung là", opts: ["mở đường cho chủ nghĩa tư bản phát triển.", "đưa giai cấp công nhân lên nắm chính quyền.", "xóa bỏ triệt để những mâu thuẫn trong xã hội.", "xác lập sự thống trị của chủ nghĩa thực dân."], ans: 0 },
+          { lv: "NB", q: "Khi mới thành lập, Liên Xô gồm 4 nước Cộng hoà Xô Viết là", opts: ["Nga, U-crai-na, Bê-lô-rút-xi-a và Lít-va.", "Nga, U-crai-na, Bê-lô-rút-xi-a và Ngoại Cáp-ca-do.", "Nga, U-crai-na, Môn-đô-va và Lát-vi-a.", "Nga, U-crai-na, Tuốc-mê-nix-tan và Ác-mê-ni-a."], ans: 1 },
+          { lv: "TH", q: "Chiến thuật mà nhân dân Miến Điện sử dụng rộng rãi để chống lại thực dân Anh xâm lược là", opts: ["chiến tranh du kích.", "đánh điểm diệt viện.", "tổng công kích.", "chiến đấu trực diện."], ans: 0 },
+          { lv: "VD", q: "Vì sao Xiêm là nước duy nhất ở khu vực Đông Nam Á giữ được nền độc lập và chủ quyền đất nước trước sự bành trướng của thực dân phương Tây?", opts: ["Do thực hiện đường lối ngoại giao mềm dẻo.", "Do Xiêm là nước có tiềm lực mạnh về kinh tế.", "Xiêm liên minh quân sự chặt chẽ với nước Mỹ.", "Xiêm đã tiến hành cuộc cách mạng tư sản sớm."], ans: 0 },
+          { lv: "NB", q: "Năm 1397, Hồ Quý Ly ban hành chính sách hạn điền nhằm mục đích trực tiếp nào sau đây?", opts: ["Hạn chế sự phát triển của chế độ tư hữu ruộng đất.", "Tăng thu thuế cho ngân sách nhà nước.", "Xóa bỏ hoàn toàn giai cấp địa chủ.", "Cấp ruộng đất cho toàn thể nông dân."], ans: 0 },
+          { lv: "NB", q: "Sự kiện nào sau đây đánh dấu sự sụp đổ của trật tự hai cực I-an-ta?", opts: ["Liên Xô và Mỹ tuyên bố chấm dứt Chiến tranh lạnh (1989).", "Chế độ xã hội chủ nghĩa ở Đông Âu và Liên Xô sụp đổ (1991).", "Tổ chức Hiệp ước Vác-sa-va giải thể (1991).", "Bức tường Béc-lin bị phá bỏ (1989)."], ans: 1 },
+          { lv: "TH", q: "Một trong những xu thế phát triển của thế giới sau Chiến tranh lạnh là", opts: ["các quốc gia lấy phát triển kinh tế làm trọng tâm.", "các nước lớn thiết lập trật tự thế giới đơn cực.", "sự gia tăng của các cuộc chiến tranh thế giới.", "duy trì các liên minh quân sự mang tính đối đầu."], ans: 0 },
+          { lv: "NB", q: "Tổ chức ASEAN được thành lập vào năm 1967 tại", opts: ["Băng Cốc (Thái Lan).", "Gia-các-ta (In-đô-nê-xi-a).", "Ma-ni-la (Phi-líp-pin).", "Cu-a-la Lăm-pơ (Ma-lai-xi-a)."], ans: 0 },
+          { lv: "TH", q: "Sự kiện nào sau đây đánh dấu bước ngoặt phát triển của ASEAN trong giai đoạn 1967 - 1976?", opts: ["Ký kết Hiệp ước Thân thiện và Hợp tác ở Đông Nam Á (Hiệp ước Ba-li).", "Thông qua Hiến chương ASEAN.", "Việt Nam chính thức gia nhập ASEAN.", "Thành lập Cộng đồng ASEAN (ASCC)."], ans: 0 },
+          { lv: "NB", q: "Cách mạng tháng Tám năm 1945 ở Việt Nam đã dẫn đến sự ra đời của", opts: ["nước Việt Nam Dân chủ Cộng hòa.", "nước Cộng hòa xã hội chủ nghĩa Việt Nam.", "Chính phủ lâm thời Cộng hòa miền Nam Việt Nam.", "Việt Nam Độc lập Đồng minh Hội."], ans: 0 },
+          { lv: "TH", q: "Chiến thắng nào của quân dân Việt Nam đã làm phá sản hoàn toàn kế hoạch Na-va của thực dân Pháp?", opts: ["Chiến dịch Điện Biên Phủ (1954).", "Chiến dịch Biên giới thu - đông (1950).", "Chiến dịch Việt Bắc thu - đông (1947).", "Cuộc Tiến công chiến lược Đông - Xuân 1953 - 1954."], ans: 0 },
+          { lv: "TH", q: "Cuộc Tiến công và nổi dậy Xuân Mậu Thân 1968 của quân dân Việt Nam đã buộc Mỹ phải", opts: ["tuyên bố \"Phi Mỹ hóa\" chiến tranh xâm lược.", "tuyên bố \"Mỹ hóa\" trở lại chiến tranh xâm lược.", "ký Hiệp định Giơ-ne-vơ về Đông Dương.", "rút toàn bộ quân đội về nước ngay lập tức."], ans: 0 },
+          { lv: "VD", q: "Chiến dịch quyết định kết thúc thắng lợi cuộc kháng chiến chống Mỹ, cứu nước của nhân dân Việt Nam là", opts: ["Chiến dịch Hồ Chí Minh.", "Chiến dịch Tây Nguyên.", "Chiến dịch Huế - Đà Nẵng.", "Chiến dịch Đường 14 - Phước Long."], ans: 0 },
+          { lv: "NB", q: "Đại hội đại biểu toàn quốc lần thứ VI của Đảng Cộng sản Việt Nam (12-1986) đã đề ra đường lối", opts: ["đổi mới đất nước toàn diện.", "công nghiệp hóa, hiện đại hóa.", "cải cách hành chính nhà nước.", "hội nhập kinh tế quốc tế."], ans: 0 },
+          { lv: "TH", q: "Trong công cuộc Đổi mới, nền kinh tế Việt Nam vận hành theo cơ chế", opts: ["thị trường định hướng xã hội chủ nghĩa.", "tập trung quan liêu, bao cấp.", "tự do cạnh tranh tuyệt đối.", "kinh tế tư bản chủ nghĩa hoàn toàn."], ans: 0 },
+          { lv: "NB", q: "Hiệp định Sơ bộ được Chủ tịch Hồ Chí Minh thay mặt Chính phủ ký với đại diện Chính phủ Pháp vào ngày", opts: ["6-3-1946.", "14-9-1946.", "21-7-1954.", "27-1-1973."], ans: 0 },
+          { lv: "TH", q: "Hiệp định Pa-ri năm 1973 về chấm dứt chiến tranh, lập lại hòa bình ở Việt Nam có ý nghĩa chiến lược là", opts: ["tạo điều kiện thuận lợi để tiến lên giải phóng hoàn toàn miền Nam.", "làm thất bại hoàn toàn chiến lược \"Chiến tranh đặc biệt\".", "chấm dứt vĩnh viễn sự can thiệp của các cường quốc vào Việt Nam.", "buộc Pháp và Mỹ phải công nhận độc lập, chủ quyền của Việt Nam."], ans: 0 },
+          { lv: "NB", q: "Nguyễn Ái Quốc đọc bản Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa của Lê-nin vào thời gian nào?", opts: ["Tháng 7 năm 1920.", "Tháng 12 năm 1920.", "Tháng 6 năm 1911.", "Tháng 11 năm 1917."], ans: 0 },
+          { lv: "TH", q: "Sự kiện Nguyễn Ái Quốc bỏ phiếu tán thành gia nhập Quốc tế thứ ba và tham gia sáng lập Đảng Cộng sản Pháp (12-1920) đánh dấu bước ngoặt", opts: ["từ một người yêu nước trở thành một người cộng sản.", "chấm dứt khủng hoảng về đường lối cứu nước ở Việt Nam.", "chuẩn bị trực tiếp về tổ chức cho sự ra đời của Đảng.", "mở đầu thời kỳ hoạt động cách mạng ở nước ngoài của Người."], ans: 0 }
+        ],
+        part2: [
+          {
+            passage: `“Với chủ trương nhất quán giải quyết các tranh chấp, bất đồng trên biển bằng biện pháp hòa bình, Việt Nam đã có nhiều nỗ lực trong việc áp dụng có hiệu quả Công ước Liên hợp quốc về Luật Biển năm 1982 để giải quyết các tranh chấp về phân định biển với các nước láng giềng. Việt Nam đã chủ động cùng các quốc gia có liên quan đàm phán, phân định các vùng biển chồng lấn theo quy định của Công ước, góp phần tạo môi trường ổn định, hòa bình, hợp tác và phát triển, như kí thỏa thuận hợp tác cùng phát triển dầu khí với Ma – lai – xi – a (1992), phân định biển với Thái Lan (1997), phân định Vịnh Bắc Bộ với Trung Quốc (2000), phân định thềm lục địa với In – đô – nê – xi – a (2003).”`,
+            source: "Sách giáo khoa Lịch sử 11, Bộ Cánh diều, NXB Đại học Sư phạm Hà Nội, 2023, tr.89",
+            items: [
+              { text: "a) Việt Nam chủ trương nhất quán giải quyết các tranh chấp trên Biển Đông thông qua biện pháp hòa bình, thương lượng.", ans: true },
+              { text: "b) Công ước Liên hợp quốc về Luật Biển là một văn bản pháp lý quan trọng giúp Việt Nam có thể giải quyết các tranh chấp trên biển thông qua luật pháp quốc tế.", ans: true },
+              { text: "c) Việt Nam đã chủ động đàm phán và kí kết thỏa thuận với nhiều quốc gia có chung Biển Đông nhằm đảm bảo hòa bình, an ninh trên biển.", ans: true },
+              { text: "d) In – đô – nê – xi – a và Việt Nam đã đàm phán và cùng đi đến thỏa thuận hợp tác phát triển dầu khí trên biển năm 2003.", ans: false }
+            ],
+            explain: "a) Đúng | b) Đúng | c) Đúng | d) Sai (Năm 2003 là phân định thềm lục địa với In-đô-nê-xi-a, không phải thỏa thuận hợp tác phát triển dầu khí)."
+          },
+          {
+            passage: `“Giờ tổng khởi nghĩa đã đánh!<br>Cơ hội có một cho quân dân Việt Nam vùng dậy giành lấy độc lập của nước nhà!... Chúng ta phải hành động cho nhanh với một tinh thần vô cùng quả cảm, vô cùng thận trọng!...<br>Cuộc thắng lợi hoàn toàn nhất định sẽ về ta”.`,
+            source: "Ủy ban Khởi nghĩa toàn quốc, Quân lệnh số 1, ngày 13-8-1945; Văn kiện Đảng Toàn tập, Tập 7, tr.425",
+            items: [
+              { text: "a) Đoạn tư liệu thể hiện lực lượng lãnh đạo cách mạng Việt Nam đã sáng suốt, chớp đúng thời cơ phát động cả nước Tổng khởi nghĩa.", ans: true },
+              { text: "b) Đoạn tư liệu thể hiện quyết tâm khởi nghĩa giành chính quyền của nhân dân Việt Nam.", ans: true },
+              { text: "c) Đoạn tư liệu cho thấy thời cơ khởi nghĩa từng phần đã đến.", ans: false },
+              { text: "d) Đoạn tư liệu là văn kiện lịch sử quan trọng góp phần vào thắng lợi của Tổng khởi nghĩa tháng Tám năm 1945 ở Việt Nam.", ans: true }
+            ],
+            explain: "a) Đúng | b) Đúng | c) Sai (Quân lệnh số 1 phát động Tổng khởi nghĩa toàn quốc) | d) Đúng."
+          },
+          {
+            passage: `“Chúng ta không thể né tránh, kiêng kị cơ chế thị trường, vì đó là sự vận động của quy luật khách quan ngoài ý muốn của ta. Trong cơ chế tập trung quan liêu, bao cấp, chúng ta đã bác bỏ cơ chế thị trường, làm trái quy luật khách quan, gây ra những hậu quả nghiêm trọng kéo dài, rốt cuộc vẫn phải bị động chạy theo tính tự phát của thị trường tự do. Đó là sai lầm cần phải khắc phục”.`,
+            source: "Trường Chinh, Đổi mới là đòi hỏi bức thiết của đất nước và của thời đại, NXB Sự Thật, Hà Nội, 1988, tr.65",
+            items: [
+              { text: "a) Từ giữa thập niên 80 của thế kỉ XX, kinh tế - xã hội Việt Nam lâm vào khủng hoảng.", ans: true },
+              { text: "b) Đảng Cộng sản Việt Nam đã mắc sai lầm chủ quan duy ý chí khi xây dựng nền kinh tế bao cấp.", ans: true },
+              { text: "c) Đảng Cộng sản Việt Nam nhận thấy cần phải đổi mới đất nước xuất phát chủ yếu từ tình hình thế giới có nhiều biến động.", ans: false },
+              { text: "d) Đổi mới đất nước là xu thế tất yếu của quốc gia, dân tộc Việt Nam.", ans: true }
+            ],
+            explain: "a) Đúng | b) Đúng | c) Sai (Xuất phát chủ yếu từ yêu cầu giải quyết khủng hoảng trong nước) | d) Đúng."
+          },
+          {
+            passage: `“...Luận cương của Lê-nin làm cho tôi rất cảm động, phấn khởi, sáng tỏ, tin tưởng biết bao! Tôi vui mừng đến phát khóc lên. Ngồi một mình trong buồng mà tôi nói to lên như đang nói trước quần chúng đông đảo: “Hỡi đồng bào bị đọa đày đau khổ! Đây là cái cần thiết cho chúng ta, đây là con đường giải phóng chúng ta!”. Từ đó tôi hoàn toàn tin theo Lê-nin, tin theo Quốc tế thứ ba”.`,
+            source: "Hồ Chí Minh, “Con đường dẫn tôi đến chủ nghĩa Mác-Lê-nin”, Hồ Chí Minh Toàn tập, Tập 12, tr.562",
+            items: [
+              { text: "a) Đoạn tư liệu cho thấy sự kiện đánh dấu chấm dứt khủng hoảng về đường lối cứu nước của Việt Nam đầu thế kỉ XX.", ans: true },
+              { text: "b) Đoạn tư liệu phản ánh sự kiện Nguyễn Ái Quốc tìm thấy con đường cứu nước cho dân tộc Việt Nam.", ans: true },
+              { text: "c) Con đường cách mạng mà Nguyễn Ái Quốc dẫn dắt dân tộc Việt Nam đi theo là con đường cách mạng vô sản.", ans: true },
+              { text: "d) Việc Nguyễn Ái Quốc tìm thấy con đường cách mạng cho dân tộc Việt Nam đánh dấu sự sụp đổ của chủ nghĩa thực dân ở Việt Nam.", ans: false }
+            ],
+            explain: "a) Đúng | b) Đúng | c) Đúng | d) Sai (Mới tìm thấy con đường cứu nước, chưa làm sụp đổ ngay chủ nghĩa thực dân)."
+          }
+        ]
+      },
+
+      // ==================== ĐỀ SỐ 02 ====================
+      {
+        title: "ĐỀ THI TỐT NGHIỆP THPT MÔN LỊCH SỬ - ĐỀ SỐ 02",
+        part1: [
+          { lv: "NB", q: "Chữ viết của người Ai Cập cổ đại là", opts: ["chữ Hán.", "chữ La-tinh.", "chữ hình nêm.", "chữ tượng hình."], ans: 3 },
+          { lv: "TH", q: "Tác dụng của việc phát minh ra phương pháp sử dụng lò cao trong luyện kim trong cuộc cách mạng công nghiệp ở thế kỉ XVIII – XIX là", opts: ["thúc đẩy việc ứng dụng điện vào cuộc sống.", "dẫn đến sự ra đời của các nguyên liệu mới.", "dẫn đến sự ra đời và phát triển của động cơ học.", "đẩy mạnh quá trình công nghiệp hóa đất nước."], ans: 3 },
+          { lv: "NB", q: "Người đứng đầu Nhà nước Văn Lang là", opts: ["An Dương Vương.", "Hùng Vương.", "Lạc tướng.", "Lạc hầu."], ans: 1 },
+          { lv: "TH", q: "Vì sao hoạt động kinh tế chính của người Kinh ngày xưa là sản xuất nông nghiệp trồng cây lúa nước?", opts: ["Do cư trú chủ yếu ở vùng đồng bằng.", "Do cư trú ở các sườn núi và đồi cao.", "Do cư trú chủ yếu ở các thung lũng.", "Do chỉ có cây lúa nước là cây lương thực."], ans: 0 },
+          { lv: "NB", q: "Kinh tế tư bản chủ nghĩa ra đời và phát triển (từ giữa thế kỉ XVI đến đầu thế kỉ XX) trong chế độ xã hội nào?", opts: ["Xã hội Chiếm nô.", "Xã hội phong kiến hoặc thuộc địa.", "Xã hội tư bản chủ nghĩa.", "Xã hội xã hội chủ nghĩa."], ans: 1 },
+          { lv: "TH", q: "Nội dung nào dưới đây là \"nhiệm vụ dân chủ\" của cuộc cách mạng tư sản nổ ra (từ giữa thế kỉ XVI đến đầu thế kỉ XX)?", opts: ["Xóa bỏ chế độ phong kiến chuyên chế, xác nhận nền dân chủ tư sản.", "Xóa bỏ tình trạng phong kiến cát cứ, hình thành thị trường dân tộc thống nhất.", "Xóa bỏ chế độ mẫu hệ, xác nhận nền dân chủ tư sản.", "Xóa bỏ tình trạng chiếm đoạt quyền lợi, hình thành thị trường dân tộc thống nhất."], ans: 0 },
+          { lv: "NB", q: "Tuyên ngôn thành lập Liên bang Cộng hòa xã hội chủ nghĩa Xô viết (gọi tắt là Liên Xô) được thông qua tại kì đại hội nào?", opts: ["Đại hội lần thứ ba các Xô Viết toàn Liên bang.", "Đại hội lần thứ hai các Xô Viết toàn Liên bang.", "Đại hội lần thứ nhất các Xô Viết toàn Liên bang.", "Đại hội lần thứ tư các Xô Viết toàn Liên bang."], ans: 2 },
+          { lv: "TH", q: "Từ nửa sau thế kỉ XIX, phong trào chống thực dân Pháp bùng nổ mạnh mẽ và lan rộng khắp", opts: ["bán đảo Đông Dương.", "Đông Nam Á hải đảo.", "Đông Nam Á lục địa.", "khu vực Đông Nam Á."], ans: 0 },
+          { lv: "VD", q: "Thành tựu lớn nhất mà nước Xiêm đạt được trong công cuộc cải cách, mở cửa đất nước là", opts: ["giữ được nền độc lập và chủ quyền đất nước.", "tạo cơ sở để xây dựng chế độ xã hội chủ nghĩa.", "đưa nước Xiêm trở thành một cường quốc về quân sự.", "xác lập sự thống trị của chủ nghĩa tư bản ở Đông Nam Á."], ans: 0 },
+          { lv: "NB", q: "Dưới thời nhà Hồ, bộ luật nào sau đây đã được ban hành (hoặc chuẩn bị ban hành)?", opts: ["Hình thư.", "Quốc triều hình luật.", "Nam Việt luật.", "Luật Hồng Đức."], ans: 0 },
+          { lv: "NB", q: "Năm 1949, tổ chức quân sự nào sau đây được thành lập bởi Mỹ và các nước phương Tây?", opts: ["NATO.", "Vác-sa-va.", "SEV.", "ASEAN."], ans: 0 },
+          { lv: "TH", q: "Nội dung nào sau đây giải thích đúng đặc điểm của trật tự thế giới đa cực?", opts: ["Có sự tham gia chi phối của nhiều trung tâm quyền lực lớn.", "Do một cường quốc duy nhất lãnh đạo và chi phối hoàn toàn.", "Các quốc gia tuyệt đối không hợp tác với nhau về kinh tế.", "Không còn tồn tại mâu thuẫn hay xung đột giữa các quốc gia."], ans: 0 },
+          { lv: "NB", q: "Hiến chương ASEAN chính thức có hiệu lực vào năm nào?", opts: ["2008.", "2007.", "2015.", "1997."], ans: 0 },
+          { lv: "TH", q: "Mục tiêu cốt lõi của việc thành lập Cộng đồng Văn hóa - Xã hội ASEAN (ASCC) là", opts: ["xây dựng một ASEAN lấy con người làm trung tâm và có trách nhiệm xã hội.", "biến ASEAN thành một thị trường chung thống nhất về kinh tế.", "tạo ra liên minh phòng thủ quân sự chung cho khu vực.", "xây dựng một hệ thống pháp lý siêu quốc gia thay thế luật pháp dân tộc."], ans: 0 },
+          { lv: "NB", q: "Chủ tịch Hồ Chí Minh đọc bản Tuyên ngôn Độc lập vào thời gian nào?", opts: ["Ngày 2 tháng 9 năm 1945.", "Ngày 19 tháng 8 năm 1945.", "Ngày 18 tháng 8 năm 1945.", "Ngày 30 tháng 8 năm 1945."], ans: 0 },
+          { lv: "TH", q: "Ý nghĩa quan trọng nhất của chiến thắng Đường 14 - Phước Long (1-1975) là", opts: ["chứng tỏ sự lớn mạnh của Quân Giải phóng và khả năng thắng lớn của cách mạng.", "làm thất bại hoàn toàn chiến lược \"Việt Nam hóa chiến tranh\".", "buộc Mỹ phải tuyên bố rút toàn bộ quân đội về nước.", "đánh dấu sự sụp đổ hoàn toàn của chính quyền Sài Gòn."], ans: 0 },
+          { lv: "TH", q: "Đặc điểm nổi bật của cuộc Tổng tiến công và nổi dậy Xuân 1975 là", opts: ["diễn ra nhanh chóng, táo bạo, bất ngờ và giành thắng lợi triệt để.", "kết hợp đấu tranh quân sự với đàm phán ngoại giao tại Pa-ri.", "tập trung đánh phá các căn cứ hải quân của đối phương ở ven biển.", "kéo dài trong nhiều năm với nhiều giai đoạn khác nhau."], ans: 0 },
+          { lv: "VD", q: "Thắng lợi của cuộc kháng chiến chống Mỹ, cứu nước (1954 - 1975) có tính thời đại sâu sắc vì đã", opts: ["cổ vũ mạnh mẽ phong trào giải phóng dân tộc trên thế giới.", "xóa bỏ hoàn toàn chủ nghĩa thực dân cũ trên thế giới.", "lập tức chấm dứt Chiến tranh lạnh giữa hai cực Liên Xô và Mỹ.", "làm phá sản hoàn toàn các chiến lược quân sự của chủ nghĩa đế quốc."], ans: 0 },
+          { lv: "NB", q: "Đến năm 2007, sự kiện nào đánh dấu bước hội nhập sâu rộng của kinh tế Việt Nam vào nền kinh tế thế giới?", opts: ["Việt Nam gia nhập Tổ chức Thương mại Thế giới (WTO).", "Việt Nam gia nhập ASEAN.", "Việt Nam bình thường hóa quan hệ với Mỹ.", "Việt Nam gia nhập Phân ban Kinh tế Liên hợp quốc."], ans: 0 },
+          { lv: "TH", q: "Thành tựu nổi bật của Việt Nam trong công cuộc Đổi mới về đối ngoại là", opts: ["phá bỏ thế bao vây cấm vận, nâng cao uy tín trên trường quốc tế.", "thiết lập quan hệ đồng minh quân sự với các nước lớn.", "trở thành quốc gia phát triển có thu nhập cao nhất châu Á.", "chấm dứt mọi mâu thuẫn biên giới lãnh thổ với các nước láng giềng."], ans: 0 },
+          { lv: "NB", q: "Việt Nam trở thành thành viên thứ 149 của Liên hợp quốc vào năm nào?", opts: ["1977.", "1976.", "1995.", "1991."], ans: 0 },
+          { lv: "TH", q: "Một trong những bài học kinh nghiệm quan trọng của ngoại giao Việt Nam thời kỳ 1945 - 1954 là", opts: ["cứng rắn về nguyên tắc, linh hoạt về sách lược.", "thỏa hiệp bằng mọi giá để duy trì hòa bình.", "phụ thuộc hoàn toàn vào sự giúp đỡ của các nước lớn.", "không tham gia bất kỳ cuộc đàm phán ngoại giao nào."], ans: 0 },
+          { lv: "NB", q: "Lời kêu gọi toàn quốc kháng chiến chống thực dân Pháp được Chủ tịch Hồ Chí Minh phát động vào ngày", opts: ["19-12-1946.", "2-9-1945.", "6-3-1946.", "17-7-1966."], ans: 0 },
+          { lv: "TH", q: "Tư tưởng \"Không có gì quý hơn độc lập, tự do\" của Hồ Chí Minh trong kháng chiến chống Mỹ (1966) có ý nghĩa", opts: ["là nguồn sức mạnh tinh thần to lớn động viên toàn dân kiên quyết kháng chiến.", "khẳng định kết thúc ngay lập tức cuộc kháng chiến chống Mỹ.", "đặt nền móng cho việc ký kết Hiệp định Giơ-ne-vơ.", "mở đầu cho phong trào Đồng khởi ở miền Nam."], ans: 0 }
+        ],
+        part2: [
+          {
+            passage: `“Họ Nguyễn đặt đội Hoàng Sa 70 suất, lấy người xã An Vĩnh sung vào, cắt phiên mỗi năm cứ tháng 2 nhận giấy sai đi, mang lương đủ ăn sáu tháng, đi bằng năm chiếc thuyền nhỏ, ra biển ba ngày ba đêm thì đến đảo ấy. Lấy được hoá vật của tàu như là gươm ngựa, hoa bạc, hòn bạc, đổ đổng, khối chì, súng, ngà voi, đổ sứ, đổ chiêm, cùng là vỏ đồi mồi, hải sâm, hạt ốc vân rất nhiều... Đến kì tháng 8 thì về. Họ Nguyễn lại đặt đội Bắc Hải. Lệnh cho đi chiếc thuyền câu nhỏ ra các xứ Bắc Hải, cù lao Côn Lôn và các đảo ở Hà Tiên”.`,
+            source: "Lê Quý Đôn, Phủ biên tạp lục, NXB Văn hoá - Thông tin, Hà Nội, 2007, tr.155",
+            items: [
+              { text: "a) Đoạn trích trong cuốn Phủ biên tạp lục của Lê Quý Đôn trình bày quá trình hình thành và phát triển của quần đảo Hoàng Sa.", ans: false },
+              { text: "b) Nhà Nguyễn đặt đội Hoàng Sa và đội Bắc Hải nhằm thực hiện quyền quản lý của mình đối với quần đảo Hoàng Sa và Trường Sa.", ans: true },
+              { text: "c) Đội Hoàng Sa do nhà Nguyễn thành lập gồm 70 người, thực hiện nhiệm vụ của mình tại quần đảo Hoàng Sa định kì hàng năm từ tháng 2 đến tháng 10.", ans: false },
+              { text: "d) Một trong những nhiệm vụ của đội Hoàng Sa và đội Bắc Hải là khai thác sản vật, thu lượm hàng hóa của những con tàu gặp nạn ở quần đảo Hoàng Sa và Trường Sa.", ans: true }
+            ],
+            explain: "a) Sai (Phản ánh hoạt động thực thi chủ quyền của chúa Nguyễn/nhà Nguyễn) | b) Đúng | c) Sai (Tháng 2 đến tháng 8) | d) Đúng."
+          },
+          {
+            passage: `“Chiều ngày 2 – 9 – 1945, tại Quảng trường Ba Đình (Hà Nội), trước sự chứng kiến của hàng vạn người dân thủ đô và vùng lân cận, Chủ tịch Hồ Chí Minh đã thay mặt Chính phủ lâm thời đọc bản Tuyên ngôn Độc lập, tuyên bố thành lập nước Việt Nam Dân chủ Cộng hòa – nhà nước công nông đầu tiên ở Đông Nam Á, là thành quả to lớn của Cách mạng tháng Tám năm 1945”.`,
+            source: "Lịch sử Việt Nam, Tập 10 (1945 - 1950), NXB Khoa học Xã hội, Hà Nội, 2017, tr.45",
+            items: [
+              { text: "a) Cách mạng tháng Tám (1945) ở Việt Nam đã dẫn tới sự ra đời của nhà nước công nông đầu tiên ở Đông Nam Á.", ans: true },
+              { text: "b) Bản Tuyên ngôn Độc lập do Chủ tịch Hồ Chí Minh đọc (2/9/1945) đã đánh dấu sự ra đời của nhà nước do dân, vì dân đầu tiên ở Việt Nam.", ans: true },
+              { text: "c) Chủ tịch Hồ Chí Minh đọc bản Tuyên ngôn Độc lập khi chiến tranh thế giới thứ hai bùng nổ.", ans: false },
+              { text: "d) Sự kiện Chủ tịch Hồ Chí Minh đọc Bản Tuyên ngôn Độc lập (2/9/1945) diễn ra tại thủ đô Hà Nội (Việt Nam).", ans: true }
+            ],
+            explain: "a) Đúng | b) Đúng | c) Sai (CTTG2 đã kết thúc giữa tháng 8/1945) | d) Đúng."
+          },
+          {
+            passage: `“Theo nhận thức của chúng ta, kinh tế thị trường định hướng xã hội chủ nghĩa là nền kinh tế thị trường hiện đại, hội nhập quốc tế, vận hành đầy đủ, đồng bộ theo quy luật của kinh tế thị trường, có sự quản lý của nhà nước pháp quyền xã hội chủ nghĩa, do Đảng Cộng sản Việt Nam lãnh đạo, bảo đảm định hướng xã hội chủ nghĩa, nhằm tạo mục tiêu “dân giàu, nước mạnh, dân chủ, công bằng, văn minh”,…”.`,
+            source: "Nguyễn Phú Trọng, Một số vấn đề lý luận và thực tiễn về CNXH..., NXB Chính trị quốc gia Sự thật, 2022, tr.25-26",
+            items: [
+              { text: "a) Đoạn tư liệu phản ánh quan điểm của Đảng Cộng sản Việt Nam trong đổi mới kinh tế.", ans: true },
+              { text: "b) Trong công cuộc đổi mới đất nước, Đảng Cộng sản Việt Nam chủ trương xây dựng nền kinh tế bao cấp, tự chủ dưới sự quản lí của nhà nước.", ans: false },
+              { text: "c) Nền kinh tế Việt Nam từ 1986 đến nay là nền kinh tế thị trường lấy kinh tế đối ngoại làm nền tảng.", ans: false },
+              { text: "d) Một trong những mục tiêu của nền kinh tế thị trường định hướng xã hội chủ nghĩa là xây dựng xã hội công bằng.", ans: true }
+            ],
+            explain: "a) Đúng | b) Sai (Đảng chủ trương xóa bỏ bao cấp) | c) Sai (Kinh tế lấy nội lực làm gốc) | d) Đúng."
+          },
+          {
+            passage: `“Chiến tranh có thể kéo dài 5 năm, 10 năm, 20 năm hoặc lâu hơn nữa. Hà Nội, Hải Phòng và một số thành phố, xí nghiệp có thể bị tàn phá, song nhân dân Việt Nam quyết không sợ! Không có gì quý hơn độc lập, tự do. Đến ngày thắng lợi, nhân dân ta sẽ xây dựng lại đất nước ta đàng hoàng hơn, to đẹp hơn”.`,
+            source: "Chủ tịch Hồ Chí Minh, Lời kêu gọi chống Mỹ cứu nước, ngày 17-7-1966; Hồ Chí Minh Toàn tập, Tập 15, tr.131",
+            items: [
+              { text: "a) Đoạn tư liệu thể hiện đường lối kháng chiến chống Pháp lâu dài của Chủ tịch Hồ Chí Minh.", ans: false },
+              { text: "b) Đoạn tư liệu phản ánh quyết tâm và tài năng lãnh đạo của Chủ tịch Hồ Chí Minh trong Cuộc kháng chiến chống Mỹ cứu nước của dân tộc Việt Nam.", ans: true },
+              { text: "c) Hồ Chí Minh là biểu tượng của sức mạnh đoàn kết dân tộc Việt Nam trong kháng chiến chống Mỹ.", ans: true },
+              { text: "d) Đoạn tư liệu phản ánh quyết tâm kháng chiến của chủ tịch Hồ Chí Minh và nhân dân Việt Nam trong bối cảnh Mỹ tăng cường bắn phá miền Bắc.", ans: true }
+            ],
+            explain: "a) Sai (Đây là kháng chiến chống Mỹ năm 1966) | b) Đúng | c) Đúng | d) Đúng."
+          }
+        ]
+      },
+
+      // ==================== ĐỀ SỐ 03 ====================
+      {
+        title: "ĐỀ THI TỐT NGHIỆP THPT MÔN LỊCH SỬ - ĐỀ SỐ 03",
+        part1: [
+          { lv: "NB", q: "Công trình kiến trúc nổi bật nhất của Ai Cập cổ đại là", opts: ["kim tự tháp.", "chùa hang.", "nhà thờ.", "cung điện."], ans: 0 },
+          { lv: "TH", q: "Nội dung nào dưới đây phản ánh không đúng ý nghĩa của việc phát minh ra máy hơi nước ở Anh (1784)?", opts: ["Lao động bằng tay được thay thế dần bằng máy móc.", "Tốc độ sản xuất và năng suất lao động tăng vượt bậc.", "Tạo ra động lực mới, khởi đầu quá trình công nghiệp hóa.", "Biến nước Anh trở thành “công xưởng của thế giới”."], ans: 3 },
+          { lv: "NB", q: "Kinh đô của nhà nước Văn Lang đặt ở", opts: ["Phong Châu.", "Cổ Loa.", "Thăng Long.", "Đại La."], ans: 0 },
+          { lv: "TH", q: "Nội dung nào là đặc điểm trong hoạt động sản xuất nông nghiệp của tộc người thiểu số ở nước ta?", opts: ["Lúa nước được trồng ở ruộng bậc thang.", "Phát triển nuôi trồng thủy - hải sản.", "Phải thường xuyên đắp đê ngăn lũ lụt.", "Phải thường xuyên thau chua rửa mặn."], ans: 0 },
+          { lv: "NB", q: "Trong cuộc Cách mạng tư sản Anh (thế kỉ XVII), giai cấp tư sản và quý tộc mới đã sử dụng tôn giáo nào làm “ngọn cờ” tư tưởng để tập hợp quần chúng nhân dân?", opts: ["Thanh giáo.", "Anh giáo.", "Đạo Tin lành.", "Thiên Chúa giáo."], ans: 0 },
+          { lv: "TH", q: "Nội dung nào dưới đây phản ánh đúng nhiệm vụ của các cuộc cách mạng tư sản từ giữa thế kỉ XVI đến đầu thế kỉ XX?", opts: ["Xóa bỏ chế độ phong kiến chuyên chế.", "Đưa giai cấp công nhân lên nắm quyền.", "Xóa bỏ triệt để mâu thuẫn trong xã hội.", "Xác lập sự thống trị của chủ nghĩa thực dân."], ans: 0 },
+          { lv: "NB", q: "Cách mạng tháng Mười Nga năm 1917 thắng lợi, Chính quyền Xô viết đầu tiên được thành lập do ai đứng đầu?", opts: ["Lê-nin.", "Xta-lin.", "Pu-tin.", "Goóc-ba-chốp."], ans: 0 },
+          { lv: "TH", q: "Từ năm 1858, cuộc chiến đấu chống xâm lược của nhân dân Việt Nam đã làm thất bại kế hoạch quân sự nào sau đây của Pháp?", opts: ["“Đánh nhanh thắng nhanh”.", "“Chinh phục từng gói nhỏ”.", "“Vừa đánh, vừa đàm”.", "“Chiến tranh tổng lực”."], ans: 0 },
+          { lv: "VD", q: "Trước sự bành trướng của thực dân phương Tây, nước Xiêm đã lựa chọn con đường nào để tránh nguy cơ bị xâm lược?", opts: ["Tiến hành cải cách, mở cửa đất nước.", "Thực hiện chính sách “bế quan, tỏa cảng”.", "Liên minh quân sự với các nước Đông Nam Á.", "Xây dựng và huấn luyện quân đội sẵn sàng chiến đấu."], ans: 0 },
+          { lv: "NB", q: "Một trong những cải cách về quân sự của Hồ Quý Ly là", opts: ["chế tạo súng thần cơ và đóng thuyền chiến Cổ Lâu.", "chỉ tuyển chọn con em quý tộc vào quân đội.", "giải tán hoàn toàn quân đội thường trực.", "nhập khẩu toàn bộ vũ khí từ phương Tây."], ans: 0 },
+          { lv: "NB", q: "Năm 1955, tổ chức quân sự nào sau đây được thành lập bởi Liên Xô và các nước Đông Âu?", opts: ["Tổ chức Hiệp ước Vác-sa-va.", "NATO.", "SEV.", "ASEAN."], ans: 0 },
+          { lv: "TH", q: "Mục đích chính của Mỹ khi đề ra Kế hoạch Mác-san (1947) là", opts: ["viện trợ cho Tây Âu để lôi kéo và tăng cường sự chi phối đối với khu vực này.", "hợp tác bình đẳng cùng có lợi với các nước châu Âu.", "giúp đỡ các nước Đông Âu phục hồi kinh tế sau chiến tranh.", "tiêu diệt hoàn toàn chủ nghĩa xã hội ở Liên Xô."], ans: 0 },
+          { lv: "NB", q: "Ý tưởng xây dựng Cộng đồng ASEAN chính thức được đề cập lần đầu tiên trong văn kiện nào?", opts: ["Tầm nhìn ASEAN 2020 (1997).", "Tuyên bố Băng Cốc (1967).", "Hiến chương ASEAN (2007).", "Hiệp ước Ba-li (1976)."], ans: 0 },
+          { lv: "TH", q: "Nội dung nào phản ánh đúng nguyên tắc hoạt động của ASEAN?", opts: ["Tôn trọng độc lập, chủ quyền và không can thiệp vào công việc nội bộ của nhau.", "Quyết định mọi vấn đề bằng nguyên tắc đa số tuyệt đối.", "Can thiệp quân sự khi một nước thành viên xảy ra xung đột.", "Áp đặt chế độ chính trị thống nhất cho tất cả các nước thành viên."], ans: 0 },
+          { lv: "NB", q: "Nhà nước công nông đầu tiên ở Đông Nam Á ra đời từ thắng lợi của:", opts: ["Cách mạng tháng Tám năm 1945 ở Việt Nam.", "Cách mạng tháng Mười Nga năm 1917.", "Cuộc kháng chiến chống Pháp năm 1954.", "Cuộc kháng chiến chống Mỹ năm 1975."], ans: 0 },
+          { lv: "TH", q: "Chiến thắng Vạn Tường (1965) của quân dân miền Nam Việt Nam chứng tỏ", opts: ["khả năng đánh bại chiến lược \"Chiến tranh cục bộ\" của Mỹ.", "sự thất bại hoàn toàn của chiến lược \"Việt Nam hóa chiến tranh\".", "Mỹ không còn khả năng can thiệp bằng quân sự vào miền Nam.", "chiến lược \"Chiến tranh đặc biệt\" bị phá sản hoàn toàn."], ans: 0 },
+          { lv: "TH", q: "Nội dung nào sau đây phản ánh đúng vai trò của \"Đội quân tóc dài\" trong kháng chiến chống Mỹ?", opts: ["Là lực lượng đấu tranh chính trị độc đáo của phụ nữ miền Nam.", "Là lực lượng quân đội chủ lực duy nhất của miền Nam.", "Là đơn vị ngoại giao chuyên đàm phán tại Pa-ri.", "Là lực lượng chuyên trách tiếp tế vật tư ở miền Bắc."], ans: 0 },
+          { lv: "VD", q: "Yếu tố quyết định nhất dẫn đến thắng lợi của cuộc kháng chiến chống Mỹ, cứu nước của nhân dân Việt Nam là", opts: ["sự lãnh đạo đúng đắn, sáng suốt của Đảng Cộng sản Việt Nam.", "sự giúp đỡ to lớn của Liên Xô, Trung Quốc và các nước xã hội chủ nghĩa.", "tinh thần đoàn kết chiến đấu của nhân dân ba nước Đông Dương.", "phong trào phản chiến phát triển mạnh mẽ ở Mỹ."], ans: 0 },
+          { lv: "NB", q: "Một trong những mục tiêu tổng quát của công cuộc Đổi mới ở Việt Nam là xây dựng xã hội", opts: ["\"dân giàu, nước mạnh, dân chủ, công bằng, văn minh\".", "công nghiệp hóa hiện đại hóa hoàn toàn.", "không còn phân biệt giai cấp và tầng lớp.", "phát triển kinh tế thị trường tự do tuyệt đối."], ans: 0 },
+          { lv: "TH", q: "Nhận xét nào đúng về cơ cấu kinh tế Việt Nam từ sau năm 1986?", opts: ["Chuyển dịch theo hướng CNH, HĐH và gia tăng tỷ trọng dịch vụ.", "Tập trung phát triển duy nhất ngành nông nghiệp lúa nước.", "Duy trì tỷ trọng công nghiệp ở mức tuyệt đối và xóa bỏ nông nghiệp.", "Phụ thuộc hoàn toàn vào nguồn vốn đầu tư từ nước ngoài."], ans: 0 },
+          { lv: "NB", q: "Việt Nam và Mỹ tuyên bố bình thường hóa quan hệ ngoại giao vào năm nào?", opts: ["1995.", "1991.", "1975.", "2023."], ans: 0 },
+          { lv: "TH", q: "Hiệp định Giơ-ne-vơ năm 1954 về Đông Dương có ý nghĩa", opts: ["công nhận các quyền dân tộc cơ bản của ba nước Đông Dương.", "chấm dứt vĩnh viễn sự chia cắt hai miền Nam - Bắc Việt Nam.", "buộc Mỹ rút hết quân đội về nước.", "giải phóng hoàn toàn miền Nam Việt Nam."], ans: 0 },
+          { lv: "NB", q: "Tác phẩm nào sau đây của Nguyễn Ái Quốc được xuất bản năm 1925 tại Pháp nhằm tố cáo tội ác của chủ nghĩa thực dân?", opts: ["Bản án chế độ thực dân Pháp.", "Đường Kách mệnh.", "Tuyên ngôn Độc lập.", "Lời kêu gọi toàn quốc kháng chiến."], ans: 0 },
+          { lv: "TH", q: "Di sản tư tưởng Hồ Chí Minh về đại đoàn kết toàn dân tộc được rút ra từ bài học lịch sử nào?", opts: ["\"Đoàn kết, đoàn kết, đại đoàn kết. Thành công, thành công, đại thành công\".", "Dựa vào sự giúp đỡ duy nhất từ các lực lượng bên ngoài.", "Chỉ đoàn kết các tầng lớp giai cấp công nhân và nông dân.", "Không cần chú trọng đến các lực lượng trung gian."], ans: 0 }
+        ],
+        part2: [
+          {
+            passage: `“Tháng 7 - 1803, vua Gia Long cho lập lại đội Hoàng Sa, lấy Cai cơ Võ văn Phú làm Thủ ngự cửa biển Sa Kỳ, sai mộ dân ngoại tịch lập làm đội Hoàng Sa. Đầu năm 1815, vua Gia Long tiếp tục “sai bọn Phạm Quang Ảnh thuộc đội Hoàng Sa ra Hoàng Sa xem xét đo đạc thủy trình…”. Năm 1816, vua Gia Long cho lực lượng ra quần đảo Hoàng Sa cắm cờ để xác định chủ quyền. Sang đời Minh Mạng, việc đo đạc thủy trình chủ yếu giao cho thủy quân thực hiện. Trong các năm 1833, 1834, 1836, vua Minh Mạng đã chỉ thị cho Bộ Công phái người ra Hoàng Sa để dựng bia chủ quyền, đo đạc thủy trình, vẽ bản đồ… Mỗi thuyền vãng thám Hoàng Sa phải đem theo 10 tấm bài gỗ dài 4,5 thước, rộng 5 tấc để dựng làm dấu mốc”.`,
+            source: "Sách giáo khoa Lịch sử 11, Bộ Chân trời sáng tạo, NXB Giáo dục Việt Nam, Hà Nội, 2023, tr.86",
+            items: [
+              { text: "a) Đoạn tư liệu cung cấp thông tin về hoạt động xác lập chủ quyền và quản lý đối với quần đảo Hoàng Sa của một số vị vua nhà Nguyễn thế kỉ XVIII.", ans: false },
+              { text: "b) Đội Hoàng Sa đã được thành lập từ thời kì trước, sau đó vua Gia Long đã cho tái lập.", ans: true },
+              { text: "c) Một trong những hoạt động của vua Minh Mạng nhằm xác lập chủ quyền và quản lý đối với quần đảo Hoàng Sa là cho thủy quân dựng bia chủ quyền và vẽ bản đồ.", ans: true },
+              { text: "d) Đoạn tư liệu cho thấy ý thức về việc xác lập chủ quyền và quản lý đối với quần đảo Hoàng Sa của vua Gia Long và Minh Mạng chưa cao.", ans: false }
+            ],
+            explain: "a) Sai (Thế kỷ XIX) | b) Đúng | c) Đúng | d) Sai (Ý thức rất cao)."
+          },
+          {
+            passage: `“Nhờ sự đoàn kết chặt chẽ và anh dũng hy sinh của toàn quân và dân ta, chúng ta đã đại thắng ở Điện Biên Phủ vào mùa hè năm 1954... Lần đầu tiên trong lịch sử, một nước thuộc địa nhỏ yếu đã đánh thắng một nước thực dân hùng mạnh. Đó là thắng lợi vẻ vang của nhân dân Việt Nam, đồng thời cũng là thắng lợi của các lực lượng hòa bình, dân chủ và xã hội chủ nghĩa trên thế giới”.`,
+            source: "Hồ Chí Minh Toàn tập, Tập 12, NXB Chính trị quốc gia Sự thật, Hà Nội, 2011, tr.40",
+            items: [
+              { text: "a) Đoạn tư liệu nói về chiến thắng Điện Biên Phủ của nhân dân Việt Nam trước thực dân Pháp năm 1954.", ans: true },
+              { text: "b) Chiến thắng Điện Biên Phủ (1954) có ý nghĩa to lớn với phong trào cách mạng thế giới.", ans: true },
+              { text: "c) Chiến thắng Điện Biên Phủ (1954) của Việt Nam chứng tỏ một nước thuộc địa nhỏ yếu cũng có thể đánh thắng một nước thực dân hùng mạnh.", ans: true },
+              { text: "d) Chiến thắng Điện Biên Phủ (1954) của Việt Nam đã góp phần vào chiến thắng phát xít của lực lượng Đồng minh.", ans: false }
+            ],
+            explain: "a) Đúng | b) Đúng | c) Đúng | d) Sai (Điện Biên Phủ diễn ra năm 1954, sau khi chống phát xít đã kết thúc từ 1945)."
+          },
+          {
+            passage: `“Đồng chí Tổng Bí thư Nguyễn Phú Trọng đã trực tiếp thực hiện gần 100 hoạt động đối ngoại, trong đó có những hoạt động đối ngoại đặc biệt quan trọng, có ý nghĩa lịch sử, tạo nền tảng quan trọng và định hướng lâu dài trong quan hệ Việt Nam với các nước như: Chuyến thăm chính thức Trung Quốc (tháng 10/2022), đón Tổng thống Hoa Kỳ Joe Biden thăm Việt Nam (tháng 9/2023), đón Chủ tịch Đảng nước Nga Thống nhất cầm quyền, Phó Chủ tịch Hội đồng An ninh quốc gia Nga Dmitry Medvedev…”`,
+            source: "Lê Hoài Trung, Tạp chí Ban Tuyên giáo Trung ương (tuyengiao.vn), ngày 12-12-2023",
+            items: [
+              { text: "a) Đoạn tư liệu phản ánh thành tựu về hội nhập quốc tế của Việt Nam trong thời kì đổi mới.", ans: true },
+              { text: "b) Đảng, Chính phủ Việt Nam chủ trương thiết lập quan hệ đối ngoại với tất cả các quốc gia, các tổ chức trên thế giới.", ans: true },
+              { text: "c) Việt Nam sẵn sàng quan hệ ngoại giao với tất cả các quốc gia, trừ các quốc gia đang xảy ra xung đột vũ trang với quốc gia khác.", ans: false },
+              { text: "d) Việt Nam và Mỹ nâng tầm đối tác chiến lược toàn diện (tháng 9-2023).", ans: true }
+            ],
+            explain: "a) Đúng | b) Đúng | c) Sai (Việt Nam làm bạn với tất cả các nước) | d) Đúng."
+          },
+          {
+            passage: `“Trong nửa sau thế kỉ XX, có một từ đã xuất hiện trong tiếng nói của những người bảo vệ và kiến tạo hòa bình trên thế giới, một từ mà cùng một lúc mang rất nhiều ý nghĩa: đấu tranh, dũng cảm, anh hùng; và nó còn có ý nghĩa là chiến thắng, độc lập, tự do. Từ đó là Việt Nam. Và có một cái tên đã luôn gắn liền với từ này - từ chỉ tên của một đất nước đó là Hồ Chí Minh.”`,
+            source: "Ro-mét Chan-đờ-ra, Việt Nam trong thế kỉ XX, NXB Chính trị Quốc gia, Hà Nội, 2001, tr.48",
+            items: [
+              { text: "a) Đoạn tư liệu phản ánh tất cả những di sản của Chủ tịch Hồ Chí Minh đều được nhân dân thế giới tiếp thu.", ans: false },
+              { text: "b) Một trong những lý do Chủ tịch Hồ Chí Minh được nhân dân thế giới tôn vinh vì ông đã góp phần to lớn vào hòa bình thế giới.", ans: true },
+              { text: "c) Chủ tịch Hồ Chí Minh có vai trò to lớn trong lãnh đạo nhân dân Việt Nam và nhân dân thế giới giành độc lập dân tộc.", ans: true },
+              { text: "d) Chủ tịch Hồ Chí Minh là nguồn cảm hứng cho nhiều quốc gia thuộc địa đứng lên đấu tranh giành độc lập.", ans: true }
+            ],
+            explain: "a) Sai | b) Đúng | c) Đúng | d) Đúng."
+          }
+        ]
+      },
+
+      // ==================== ĐỀ SỐ 04 ====================
+      {
+        title: "ĐỀ THI TỐT NGHIỆP THPT MÔN LỊCH SỬ - ĐỀ SỐ 04",
+        part1: [
+          { lv: "NB", q: "Phép đếm lấy số 10 làm cơ sở (thập tiến vị) là thành tựu của cư dân", opts: ["Ai Cập cổ đại.", "Lưỡng Hà cổ đại.", "Ấn Độ cổ đại.", "Trung Quốc cổ đại."], ans: 0 },
+          { lv: "TH", q: "Thời cận đại, phong trào “rào đất cướp ruộng” xuất hiện ở Anh là phong trào liên quan đến hiện tượng nào sau đây?", opts: ["Tranh giành ruộng đất giữa các lãnh chúa phong kiến.", "Nông nô đấu tranh để bảo vệ ruộng đất của chính mình.", "Quý tộc phong kiến thôn tính ruộng đất của nhau để lập trang trại.", "Quý tộc phong kiến tước đoạt ruộng đất của nông nô để chăn nuôi cừu."], ans: 3 },
+          { lv: "NB", q: "Văn học thời kì Văn Lang - Âu Lạc là nền văn học", opts: ["chữ viết.", "chữ Hán.", "truyền miệng.", "chữ Quốc ngữ."], ans: 2 },
+          { lv: "TH", q: "Sản xuất nông nghiệp của người Kinh và các dân tộc thiểu số có điểm gì giống nhau?", opts: ["Đều phát triển nông nghiệp với đặc trưng là trồng lúa nước và chăn nuôi gia súc.", "Chủ yếu là trồng lúa nương, ngô, khoai, sắn, cây ăn quả và chăn nuôi.", "Phát triển đánh bắt thủy – hải sản. Ít chú trọng nuôi thủy hải sản.", "Chủ yếu là trồng lúa nước, bên cạnh đó trồng cả sắn, ngô, củ quả."], ans: 0 },
+          { lv: "NB", q: "Nội dung nào sau đây là tiền đề về kinh tế dẫn đến sự bùng nổ và thắng lợi của các cuộc cách mạng tư sản từ giữa thế kỉ XVI đến đầu thế kỉ XX?", opts: ["Quan hệ sản xuất tư bản chủ nghĩa thay thế quan hệ phong kiến.", "Triết học Ánh sáng ra đời, dọn đường cho quần chúng đấu tranh.", "Giai cấp tư sản và đồng minh có lực rất lớn cả về kinh tế và chính trị.", "Kinh tế tư bản chủ nghĩa ra đời và phát triển trong lòng chế độ phong kiến."], ans: 3 },
+          { lv: "TH", q: "Trong cách mạng tư sản Anh diễn ra và giành thắng lợi vào thế kỉ XVII đánh dấu vai trò quyết định của cách mạng là lực lượng nào?", opts: ["Quần chúng nhân dân.", "Giai cấp tư sản Anh.", "Quý tộc mới ở Anh.", "Giáo hội Anh."], ans: 0 },
+          { lv: "NB", q: "Hiến pháp Liên Xô (1924) đã giải quyết vấn đề dân tộc trong một quốc gia nhiều dân tộc dựa trên nguyên tắc", opts: ["Bình đẳng và tình hữu nghị giữa các dân tộc.", "Cạnh tranh và hợp tác về kinh tế giữa các dân tộc.", "Tôn trọng chủ quyền lãnh thổ giữa các dân tộc.", "Không can thiệp vào công việc nội bộ của nhau."], ans: 0 },
+          { lv: "TH", q: "Năm 1858, quân thực dân Pháp mở đầu cuộc tấn công xâm lược Việt Nam tại vị trí nào?", opts: ["Bán đảo Sơn Trà (Đà Nẵng).", "Gia Định.", "Đại đồn Chí Hòa.", "Cửa biển Thuận An."], ans: 0 },
+          { lv: "VD", q: "Đặc điểm nổi bật của cuộc cải cách Minh Mạng ở Việt Nam đầu thế kỷ XIX là", opts: ["thống nhất các đơn vị hành chính trong cả nước từ trung ương đến địa phương.", "đưa Việt Nam trở thành một quốc gia công nghiệp phát triển ở châu Á.", "mở cửa giao thương hoàn toàn với các nước tư bản phương Tây.", "xóa bỏ hoàn toàn quyền lực của nhà vua và thiết lập chế độ cộng hòa."], ans: 0 },
+          { lv: "NB", q: "Dưới thời Hồ, loại tiền nào sau đây được ban hành để thay thế tiền đồng?", opts: ["Tiền giấy Thông bảo hội sao.", "Tiền Thái Bình Hưng Bảo.", "Tiền Thiên Mệnh Thông Bảo.", "Tiền Gia Long Thông Bảo."], ans: 0 },
+          { lv: "NB", q: "Biểu hiện nào sau đây đánh dấu sự khép lại của Chiến tranh lạnh?", opts: ["Cuộc gặp không chính thức giữa Tổng thống Mỹ R. Bu-xơ và Tổng Bí thư Liên Xô M. Goóc-ba-chốp tại đảo Môn-ta (1989).", "Sự thành lập của Tổ chức Liên hợp quốc (1945).", "Sự ra đời của Hiệp ước Bắc Đại Tây Dương (1949).", "Cuộc khủng hoảng tên lửa ở Cu-ba (1962)."], ans: 0 },
+          { lv: "TH", q: "Nhận định nào sau đây là đúng về cục diện thế giới sau khi Chiến tranh lạnh kết thúc?", opts: ["Xu thế đa cực ngày càng khẳng định rõ nét trong quan hệ quốc tế.", "Mỹ thiết lập thành công trật tự thế giới đơn cực độc tôn.", "Nguy cơ bùng nổ chiến tranh thế giới mới tăng cao.", "Các quốc gia ngừng hoàn toàn việc hợp tác về kinh tế."], ans: 0 },
+          { lv: "NB", q: "Việt Nam chính thức trở thành thành viên thứ 7 của ASEAN vào thời gian nào?", opts: ["Ngày 28 tháng 7 năm 1995.", "Ngày 8 tháng 8 năm 1967.", "Ngày 30 tháng 4 năm 1999.", "Ngày 7 tháng 1 năm 1984."], ans: 0 },
+          { lv: "TH", q: "Đóng góp quan trọng của Việt Nam đối với ASEAN từ khi gia nhập đến nay là", opts: ["thúc đẩy mở rộng thành viên và tăng cường đoàn kết, hợp tác nội khối.", "đề xuất biến ASEAN thành một liên minh quân sự lớn nhất khu vực.", "yêu cầu thay đổi hoàn toàn Hiến chương ASEAN ngay khi gia nhập.", "duy trì việc không tham gia vào các diễn đàn đối ngoại của tổ chức."], ans: 0 },
+          { lv: "NB", q: "Cuộc Tổng tiến công và nổi dậy Xuân 1975 bắt đầu bằng chiến dịch nào?", opts: ["Chiến dịch Tây Nguyên.", "Chiến dịch Huế - Đà Nẵng.", "Chiến dịch Hồ Chí Minh.", "Chiến dịch Phước Long."], ans: 0 },
+          { lv: "TH", q: "Điểm khác biệt căn bản giữa Cách mạng tháng Tám (1945) với Cuộc kháng chiến chống Mỹ (1954-1975) ở Việt Nam là", opts: ["sử dụng hình thức bạo lực cách mạng kết hợp khởi nghĩa quần chúng với chiến tranh cách mạng.", "nhằm lật đổ chế độ phong kiến chuyên chế tồn tại lâu đời.", "chỉ diễn ra ở địa bàn nông thôn mà không có đô thị.", "phụ thuộc hoàn toàn vào viện trợ quân sự từ các nước bên ngoài."], ans: 0 },
+          { lv: "TH", q: "Mục tiêu chung của nhân dân Việt Nam trong cuộc kháng chiến chống Mỹ, cứu nước (1954 - 1975) là", opts: ["bảo vệ miền Bắc, giải phóng miền Nam, thống nhất Tổ quốc.", "hoàn thành cải cách ruộng đất ở tất cả các vùng thôn quê.", "xây dựng ngay chế độ công nghiệp hóa hiện đại hóa trên toàn quốc.", "lập tức thiết lập quan hệ đối tác chiến lược với các nước tư bản."], ans: 0 },
+          { lv: "VD", q: "Bài học kinh nghiệm nào từ Cách mạng tháng Tám năm 1945 được Đảng vận dụng xuyên suốt trong các cuộc kháng chiến bảo vệ Tổ quốc?", opts: ["Nhạy bén chớp thời cơ và phát huy sức mạnh khối đại đoàn kết toàn dân.", "Tập trung xây dựng lực lượng quân đội chính quy ngay từ ban đầu.", "Thỏa hiệp với kẻ thù để duy trì nền hòa bình tạm thời.", "Chỉ tập trung phát triển kinh tế thay vì củng cố quốc phòng."], ans: 0 },
+          { lv: "NB", q: "Chính sách Đổi mới kinh tế ở Việt Nam bắt đầu được thực hiện từ năm nào?", opts: ["1986.", "1976.", "1995.", "2000."], ans: 0 },
+          { lv: "TH", q: "Một trong những bài học kinh nghiệm quan trọng của Việt Nam sau gần 40 năm Đổi mới là", opts: ["luôn giữ vững sự lãnh đạo của Đảng và kiên định mục tiêu độc lập dân tộc gắn liền với chủ nghĩa xã hội.", "rập khuôn hoàn toàn mô hình phát triển kinh tế của các nước phương Tây.", "tuyệt đối không thu hút nguồn vốn đầu tư trực tiếp từ nước ngoài (FDI).", "quay trở lại cơ chế quản lý tập trung bao cấp như trước năm 1986."], ans: 0 },
+          { lv: "NB", q: "Hiệp định Giơ-ne-vơ về chấm dứt chiến tranh, lập lại hòa bình ở Đông Dương được ký kết vào năm nào?", opts: ["1954.", "1946.", "1973.", "1975."], ans: 0 },
+          { lv: "TH", q: "Tầm vóc lịch sử của Hiệp định Pa-ri năm 1973 đối với cuộc kháng chiến chống Mỹ của Việt Nam là", opts: ["buộc Mỹ phải rút hết quân về nước, tạo thế và lực cho đại thắng mùa Xuân 1975.", "đánh dấu sự sụp đổ hoàn toàn của chính quyền và quân đội Sài Gòn.", "giải phóng hoàn toàn miền Nam và hoàn thành thống nhất đất nước.", "buộc các nước lớn phải thừa nhận Việt Nam là một cường quốc quân sự."], ans: 0 },
+          { lv: "NB", q: "Chủ tịch Hồ Chí Minh qua đời vào năm nào?", opts: ["1969.", "1975.", "1954.", "1945."], ans: 0 },
+          { lv: "TH", q: "Tư tưởng Hồ Chí Minh là kết quả của sự vận dụng và phát triển sáng tạo", opts: ["chủ nghĩa Mác - Lê-nin vào điều kiện cụ thể của Việt Nam.", "tư tưởng triết học Ánh sáng châu Âu.", "học thuyết Nho giáo truyền thống hoàn toàn.", "tư tưởng dân chủ tư sản phương Tây."], ans: 0 }
+        ],
+        part2: [
+          {
+            passage: `“Đại Nam nhất thống toàn đồ là bản đồ Việt Nam dưới thời Nguyễn, được vẽ vào khoảng năm 1838, ghi rõ “Hoàng Sa”, “Vạn Lý Trường Sa” thuộc lãnh thổ Việt Nam, phía ngoài các đảo ven bờ miền Trung Việt Nam thuộc lãnh thổ Việt Nam. Trong bài “Địa lý Vương quốc Cô – chin – chi – na” (Tạp chí Hội Địa lí Hoàng gia Luân Đôn, Tập 19, 1849, tr.93) của Gút – láp, có đoạn ghi rõ Pa – ra – xeo (tức Hoàng Sa) thuộc lãnh thổ Việt Nam và chú thích cả tên Việt Nam là “Cát Vàng””.`,
+            source: "Sách giáo khoa Lịch sử 11, Bộ Chân trời sáng tạo, NXB Giáo dục Việt Nam, Hà Nội, 2023, tr.86",
+            items: [
+              { text: "a) Đại Nam nhất thống toàn đồ là bản đồ Việt Nam dưới thời Nguyễn, được vẽ vào thế kỉ XVIII.", ans: false },
+              { text: "b) Đại Nam nhất thống toàn đồ là một tài liệu, căn cứ để khẳng định Hoàng Sa và Trường Sa trong lịch sử thuộc chủ quyền của Việt Nam.", ans: true },
+              { text: "c) Chủ quyền của Việt Nam đối với quần đảo Hoàng Sa còn được ghi chép trong các tài liệu của người nước ngoài.", ans: true },
+              { text: "d) Đại Nam nhất thống toàn đồ là tấm bản đồ duy nhất của Việt Nam hiện nay thể hiện Hoàng Sa và Trường Sa thuộc lãnh thổ Việt Nam.", ans: false }
+            ],
+            explain: "a) Sai (Năm 1838 thuộc thế kỷ XIX) | b) Đúng | c) Đúng | d) Sai (Còn nhiều bản đồ khác như An Nam đại công quốc họa đồ, Phủ biên tạp lục...)."
+          },
+          {
+            passage: `“Năm 1965, Quân Giải phóng miền Nam Việt Nam giành thắng lợi ở Núi Thành, Vạn Tường. Chiến thắng Vạn Tường cho thấy khả năng quân Giải phóng miền Nam có thể đánh bại chiến lược “Chiến tranh cục bộ” của Mỹ. Bước vào mùa khô 1965 – 1966 và 1966 – 1967, Quân Giải phóng đẩy lùi nhiều cuộc hành quân “bình định” của Mỹ và đồng minh. Xuân năm 1968, quân và dân miền Nam mở cuộc Tổng tiến công và nổi dậy buộc Mỹ phải chấm dứt chiến tranh phá hoại miền Bắc lần thứ nhất, chấp nhận đến bàn đàm phán Pa-ri”.`,
+            source: "Sách giáo khoa Lịch sử 12, Bộ Kết nối tri thức với cuộc sống, NXB Giáo dục Việt Nam, Hà Nội, 2024, tr.54",
+            items: [
+              { text: "a) Chiến thắng Vạn Tường và Tổng tiến công nổi dậy Xuân 1968 là những thắng lợi quân sự dẫn tới chiến lược “Chiến tranh cục bộ” của Mỹ phá sản.", ans: true },
+              { text: "b) Cuộc Tổng tiến công và nổi dậy Xuân 1968 đã mở ra khả năng kết thúc chiến tranh bằng giải pháp ngoại giao.", ans: true },
+              { text: "c) Cuộc Tổng tiến công và nổi dậy Xuân 1968 đánh dấu cuộc kháng chiến chống Mỹ của Việt Nam kết thúc thắng lợi.", ans: false },
+              { text: "d) Chiến thắng Núi Thành (1965) và chiến thắng Vạn Tường (1965) là những chiến thắng quan trọng của quân dân miền Nam trên mặt trận chính trị.", ans: false }
+            ],
+            explain: "a) Đúng | b) Đúng | c) Sai (Đến năm 1975 mới kết thúc thắng lợi hoàn toàn) | d) Sai (Đây là những chiến thắng quân sự)."
+          },
+          {
+            passage: `Cho bảng số liệu sau:
+              <table class="data-table">
+                <tr><th>Phân loại chỉ tiêu thương mại</th><th>Giai đoạn 2011 - 2015</th><th>Giai đoạn 2016 - 2020</th></tr>
+                <tr><td colspan="3"><strong>Kim ngạch xuất khẩu hàng hóa và dịch vụ</strong></td></tr>
+                <tr><td>- Tổng kim ngạch xuất khẩu</td><td>707,0 tỉ USD</td><td>1257,0 tỉ USD</td></tr>
+                <tr><td>- Kim ngạch xuất khẩu bình quân</td><td>141,9 tỉ USD/năm</td><td>251,4 tỉ USD/năm</td></tr>
+                <tr><td colspan="3"><strong>Kim ngạch nhập khẩu hàng hóa và dịch vụ</strong></td></tr>
+                <tr><td>- Tổng kim ngạch nhập khẩu</td><td>734,2 tỉ USD</td><td>1238,0 tỉ USD</td></tr>
+                <tr><td>- Kim ngạch nhập khẩu bình quân</td><td>146,84 tỉ USD/năm</td><td>247,6 tỉ USD/năm</td></tr>
+              </table>`,
+            source: "Tổng cục Thống kê, Niên giám thống kê Việt Nam các năm 2015, 2020, NXB Thống kê, Hà Nội",
+            items: [
+              { text: "a) Bảng số liệu thể hiện thành tựu kinh tế đối ngoại Việt Nam từ Đại hội VI của Đảng Cộng sản Việt Nam đến năm 2020.", ans: false },
+              { text: "b) Từ năm 2011 – 2020, cán cân thương mại Việt Nam chuyển biến dần từ nhập siêu sang xuất siêu.", ans: true },
+              { text: "c) Từ năm 2011 – 2020, kinh tế đối ngoại Việt Nam phát triển nhanh.", ans: true },
+              { text: "d) Đoạn tư liệu phản ánh những thành tựu về xã hội của công cuộc đổi mới ở Việt Nam.", ans: false }
+            ],
+            explain: "a) Sai (Bảng số liệu chỉ ghi nhận giai đoạn 2011-2020) | b) Đúng | c) Đúng | d) Sai (Phản ánh thành tựu kinh tế thương mại, không phải xã hội)."
+          },
+          {
+            passage: `“Kể từ khi thực dân Pháp xâm lược, các phong trào yêu nước của nhân dân Việt Nam đã diễn ra liên tục và anh dũng, sử dụng nhiều con đường cứu nước khác nhau, nhưng không giành được thắng lợi. Sự nghiệp giải phóng dân tộc lâm vào tình hình đen tối tưởng như không có đường ra”.`,
+            source: "Vũ Quang Hiển (Chủ biên), Tuyên ngôn Độc lập: Những khát vọng về quyền dân tộc và quyền con người, NXB ĐHQG Hà Nội, 2013, tr.108",
+            items: [
+              { text: "a) Đoạn tư liệu phản ánh bối cảnh đất nước khi Hồ Chí Minh sinh ra.", ans: true },
+              { text: "b) Từ cuối thế kỉ XIX – đầu thế kỉ XX, phong trào yêu nước dưới ngọn cờ phong kiến và cuộc vận động cứu nước theo khuynh hướng dân chủ tư sản đều thất bại.", ans: true },
+              { text: "c) Hồ Chí Minh sinh ra trong bối cảnh phong trào giải phóng dân tộc của nhân dân tạm lắng.", ans: false },
+              { text: "d) Hồ Chí Minh sinh ra trong bối cảnh cách mạng Việt Nam đã tìm thấy con đường cứu nước đúng đắn nhưng chưa đoàn kết được lực lượng đấu tranh.", ans: false }
+            ],
+            explain: "a) Đúng | b) Đúng | c) Sai (Phong trào diễn ra sôi nổi và liên tục) | d) Sai (Lúc này chưa tìm thấy con đường cứu nước đúng đắn)."
+          }
+        ]
+      },
+
+      // ==================== ĐỀ SỐ 05 ====================
+      {
+        title: "ĐỀ THI TỐT NGHIỆP THPT MÔN LỊCH SỬ - ĐỀ SỐ 05",
+        part1: [
+          { lv: "NB", q: "Nền văn minh Trung Quốc cổ - trung đại hình thành và phát triển gắn liền với dòng sông nào?", opts: ["Sông Ti-grơ và Ơ-phrát.", "Sông Nin và sông Công-gô.", "Hoàng Hà và Trường Giang.", "Sông Ấn và sông Hằng."], ans: 2 },
+          { lv: "TH", q: "Cuộc cách mạng công nghiệp thời cận đại không có những tác động nào sau đây?", opts: ["Thúc đẩy sự phát triển kinh tế, nâng cao năng suất lao động.", "Hình thành và phát triển các trung tâm công nghiệp, thành thị.", "Gây ô nhiễm môi trường, bóc lột lao động và xâm chiếm thuộc địa.", "Thúc đẩy toàn cầu hóa, tự động hóa, thương mại điện tử, tự do thông tin."], ans: 3 },
+          { lv: "NB", q: "Quốc gia nào sau đây là nhà nước đầu tiên ở Việt Nam?", opts: ["Phù Nam.", "Chăm-pa.", "Âu Lạc.", "Văn Lang."], ans: 3 },
+          { lv: "TH", q: "Nội dung nào dưới đây không đúng đặc điểm để xếp các dân tộc vào nhóm cùng một Ngữ hệ ở Việt Nam?", opts: ["Giống nhau về nhóm dân tộc.", "Giống nhau về hệ thống từ vựng cơ bản.", "Giống nhau về thanh điệu và ngữ âm.", "Giống nhau về ngữ pháp."], ans: 0 },
+          { lv: "NB", q: "Mục tiêu đấu tranh của 13 bang thuộc địa Anh ở Bắc Mỹ là", opts: ["Giải phóng dân tộc, lập nên quốc gia mới.", "Chống lại chế độ phong kiến chuyên chế.", "Xác lập sự thống trị của chủ nghĩa thực dân.", "Xóa bỏ tình trạng phân tán về chính trị."], ans: 0 },
+          { lv: "TH", q: "Nội dung nào dưới đây là một trong những yếu tố để cách mạng tư sản Pháp diễn ra và giành thắng lợi triệt để vào cuối thế kỉ XVIII?", opts: ["Quần chúng nhân dân không tham gia vào cách mạng.", "Quần chúng nhân dân tham gia đông đảo và liên tục.", "Quần chúng nhân dân tham gia số lượng ít và liên tục.", "Quần chúng nhân dân tham gia số lượng ít và không liên tục."], ans: 1 },
+          { lv: "NB", q: "Tư tưởng chỉ đạo của Lê-nin trong việc thành lập Liên bang Cộng hòa xã hội chủ nghĩa Xô viết năm 1922 là", opts: ["bình đẳng về mọi mặt.", "phân biệt về tôn giáo.", "cưỡng ép về văn hóa.", "phân biệt về sắc tộc."], ans: 0 },
+          { lv: "TH", q: "Đến đầu thế kỉ XX, bằng những hình thức khác nhau Anh đã xâm lược và thiết lập ách cai trị ở quốc gia Đông Nam Á nào sau đây?", opts: ["Ma-lai-xi-a, Xin-ga-po, Bru-nây.", "Phi-líp-pin, In-đô-nê-xi-a.", "Việt Nam, Lào, Campuchia.", "Thái Lan, Mi-an-ma."], ans: 0 },
+          { lv: "VD", q: "Dựa trên cơ sở nào mà Chính phủ Xiêm có thực lực để thực hiện đường lối ngoại giao mềm dẻo giữ vững nền độc lập và chủ quyền đất nước?", opts: ["Những thành tựu đạt được từ công cuộc cải cách.", "Xây dựng và huấn luyện quân đội theo kiểu phương Tây.", "Do sự viện trợ từ bên ngoài, nhất là Anh và Pháp.", "Thường xuyên tiến hành các cuộc chiến tranh xâm lược."], ans: 0 },
+          { lv: "NB", q: "Một trong những cải cách về xã hội của Hồ Quý Ly là", opts: ["làm sổ hộ tịch để quản lý nhân khẩu trong cả nước.", "xóa bỏ toàn bộ tầng lớp nô tì.", "khuyến khích mua bán nô tì tự do.", "cho phép thương nhân nước ngoài quản lý hộ tịch."], ans: 0 },
+          { lv: "NB", q: "Năm 1945, Hội nghị I-an-ta được tổ chức với sự tham dự của đại diện ba cường quốc nào?", opts: ["Liên Xô, Mỹ, Anh.", "Liên Xô, Mỹ, Pháp.", "Liên Xô, Trung Quốc, Mỹ.", "Anh, Pháp, Mỹ."], ans: 0 },
+          { lv: "TH", q: "Nguyên nhân chủ yếu dẫn đến sự chấm dứt Chiến tranh lạnh (1989) là", opts: ["sự suy giảm thế và lực của cả hai siêu cường Liên Xô và Mỹ do cuộc chạy đua vũ trang.", "sự xuất hiện và chi phối của các quốc gia đang phát triển.", "thắng lợi hoàn toàn của phong trào giải phóng dân tộc ở châu Á.", "nguy cơ bùng nổ một cuộc xung đột hạt nhân diện rộng đã bị loại bỏ hoàn toàn."], ans: 0 },
+          { lv: "NB", q: "Cộng đồng ASEAN chính thức được thành lập vào thời điểm nào?", opts: ["Ngày 31 tháng 12 năm 2015.", "Ngày 8 tháng 8 năm 1967.", "Ngày 28 tháng 7 năm 1995.", "Ngày 20 tháng 11 năm 2007."], ans: 0 },
+          { lv: "TH", q: "Cơ sở quan trọng giúp ASEAN vượt qua các khác biệt về chế độ chính trị để cùng hợp tác là", opts: ["nhu cầu giữ vững hòa bình, ổn định và phát triển kinh tế khu vực.", "sự áp đặt chế độ chính trị giống nhau từ các quốc gia bên ngoài.", "cam kết xây dựng một quân đội chung cho toàn khu vực.", "việc ký kết các điều ước đồng minh quân sự song phương."], ans: 0 },
+          { lv: "NB", q: "Ngày 19 tháng 8 năm 1945 ghi dấu thắng lợi của cuộc khởi nghĩa giành chính quyền ở", opts: ["Hà Nội.", "Huế.", "Sài Gòn.", "Bắc Giang."], ans: 0 },
+          { lv: "TH", q: "Thắng lợi của cuộc tiến công chiến lược Xuân 1972 đã buộc chính quyền Mỹ phải", opts: ["tuyên bố \"Mỹ hóa\" trở lại chiến tranh xâm lược và chấp nhận trở lại bàn đàm phán Pa-ri.", "rút ngay lập tức toàn bộ quân đội về nước.", "công nhận nền độc lập hoàn toàn của ba nước Đông Dương.", "chấm dứt mọi khoản viện trợ quân sự cho chính quyền Sài Gòn."], ans: 0 },
+          { lv: "TH", q: "Ý nghĩa của việc thành lập Chính phủ Lâm thời Cộng hòa miền Nam Việt Nam (1969) là", opts: ["tạo ra cơ quan đại diện hợp pháp, chính đáng cho nhân dân miền Nam trên trường quốc tế.", "đánh dấu cuộc kháng chiến chống Mỹ kết thúc thắng lợi.", "làm phá sản hoàn toàn chiến lược \"Chiến tranh đặc biệt\".", "buộc Mỹ phải ký Hiệp định Sơ bộ."], ans: 0 },
+          { lv: "VD", q: "Bài học kinh nghiệm về kết hợp sức mạnh dân tộc với sức mạnh thời đại trong kháng chiến chống Mỹ (1954 - 1975) được thể hiện ở việc", opts: ["giương cao ngọn cờ độc lập dân tộc và chủ nghĩa xã hội để tranh thủ sự ủng hộ quốc tế.", "phụ thuộc tuyệt đối vào các quyết định của các nước xã hội chủ nghĩa.", "từ chối sự giúp đỡ từ các lực lượng hòa bình trên thế giới.", "chỉ chú trọng tranh thủ sự ủng hộ ngoại giao mà không phát triển quân sự."], ans: 0 },
+          { lv: "NB", q: "Trọng tâm của công cuộc Đổi mới ở Việt Nam (từ năm 1986) được xác định là", opts: ["đổi mới kinh tế.", "đổi mới chính trị.", "đổi mới văn hóa.", "đổi mới giáo dục."], ans: 0 },
+          { lv: "TH", q: "Thành tựu về công tác xóa đói giảm nghèo trong thời kỳ Đổi mới ở Việt Nam chứng tỏ", opts: ["tính ưu việt và định hướng xã hội chủ nghĩa của nền kinh tế thị trường ở Việt Nam.", "Việt Nam đã trở thành quốc gia phát triển nhất trên thế giới.", "Việt Nam hoàn toàn không còn sự chênh lệch giàu nghèo trong xã hội.", "chính sách đổi mới chỉ mang lại lợi ích cho tầng lớp thương nhân."], ans: 0 },
+          { lv: "NB", q: "Chủ tịch Hồ Chí Minh đã ký bản Tạm ước Việt - Pháp vào ngày thời gian nào?", opts: ["Ngày 14 tháng 9 năm 1946.", "Ngày 6 tháng 3 năm 1946.", "Ngày 21 tháng 7 năm 1954.", "Ngày 27 tháng 1 năm 1973."], ans: 0 },
+          { lv: "TH", q: "Nguyên tắc ngoại giao quan trọng nhất được Việt Nam áp dụng trong Hiệp định Sơ bộ (6-3-1946) là", opts: ["hòa để tiến, lợi dụng mâu thuẫn giữa các kẻ thù để bảo vệ chính quyền cách mạng.", "kiên quyết không thỏa hiệp dưới bất kỳ hình thức nào.", "chấp nhận làm đồng minh quân sự của Pháp để đánh Nhật.", "từ bỏ hoàn toàn mục tiêu độc lập dân tộc."], ans: 0 },
+          { lv: "NB", q: "Hội Việt Nam Cách mạng Thanh niên được Nguyễn Ái Quốc thành lập vào năm nào?", opts: ["1925.", "1930.", "1921.", "1919."], ans: 0 },
+          { lv: "TH", q: "Vai trò lịch sử to lớn nhất của Hồ Chí Minh đối với dân tộc Việt Nam là", opts: ["tìm ra con đường cứu nước đúng đắn và lãnh đạo nhân dân giành độc lập, tự do.", "viết ra nhiều tác phẩm văn học nổi tiếng thế giới.", "xây dựng hệ thống đường giao thông hiện đại.", "trở thành nhà lãnh đạo quân sự duy nhất của Đông Dương."], ans: 0 }
+        ],
+        part2: [
+          {
+            passage: `“Ở nhiều nơi, núi chạy lan ra sát biển, tạo thành những địa hình hiểm trở, những vũng vịnh kín, xen lẫn với những bờ biển bằng phẳng thuận tiện cho việc trú đậu của tàu thuyền và chuyển quân bằng đường biển. Hệ thống quần đảo và đảo trên vùng biển nước ta cùng với dải đất liền ven biển thuận lợi cho việc xây dựng các căn cứ quân sự, điểm tựa, pháo đài, trạm gác tiền tiêu, hình thành tuyến phòng thủ nhiều tầng, nhiều lớp, với thế bố trí chiến lược hợp thế trên bờ, dưới nước, tạo điều kiện thuận lợi để bảo vệ, kiểm soát và làm chủ vùng biển của nước ta”.`,
+            source: "Nguyễn Thái Anh (Chủ biên), Những kí ức không thể lãng quên: Hoàng Sa, Trường Sa trong trái tim Tổ quốc, 2013, tr.112",
+            items: [
+              { text: "a) Biển Đông đóng vai trò quan trọng rất lớn trong việc phát triển các ngành kinh tế trọng điểm của nước ta.", ans: true },
+              { text: "b) Các đảo và quần đảo Việt Nam tạo ra cơ sở để xây dựng thành cơ sở hậu cần - kĩ thuật phục vụ hoạt động quân sự.", ans: true },
+              { text: "c) Biển Đông là tuyến phòng thủ liên hoàn biển - đảo - bờ để bảo vệ Tổ quốc.", ans: true },
+              { text: "d) Hệ thống các đảo và quần đảo Việt Nam thường được chia thành: hệ thống đảo tiền tiêu, đảo du lịch, đảo ven bờ và hai quần đảo xa bờ.", ans: false }
+            ],
+            explain: "a) Đúng | b) Đúng | c) Đúng | d) Sai."
+          },
+          {
+            passage: `Đọc bảng dữ liệu sau đây:
+              <table class="data-table">
+                <tr><th>Mặt trận Quân sự</th><th>Mặt trận Chính trị</th><th>Mặt trận Ngoại giao</th></tr>
+                <tr>
+                  <td>• Năm 1970: Đánh bại cuộc hành quân xâm lược Campuchia của Mỹ - Sài Gòn.<br>• Năm 1971: Đánh bại cuộc hành quân Lam Sơn 719 trên Đường 9 – Nam Lào.<br>• Năm 1972: Tiến công chọc thủng 3 phòng tuyến Quảng Trị, Tây Nguyên, Đông Nam Bộ.</td>
+                  <td>• Tháng 6/1969: Chính phủ Lâm thời Cộng hòa miền Nam Việt Nam được thành lập.<br>• Tháng 4/1970: Hội nghị Cấp cao ba nước Đông Dương họp biểu thị quyết tâm đoàn kết.</td>
+                  <td>• Ngày 25/1/1969: Đàm phán bốn bên về Việt Nam chính thức mở phiên đầu tiên tại Pari.<br>• Ngày 27/1/1973: Ký kết Hiệp định Pari về chấm dứt chiến tranh, lập lại hòa bình.</td>
+                </tr>
+              </table>`,
+            source: "Bộ Quốc phòng - Viện Lịch sử Quân sự Việt Nam, Lịch sử cuộc kháng chiến chống Mỹ cứu nước 1954 - 1975, 2013",
+            items: [
+              { text: "a) Nhân dân ba nước Đông Dương đoàn kết trong cuộc kháng chiến chống Mỹ, cứu nước.", ans: true },
+              { text: "b) Bảng dữ liệu cho thấy chủ trương kết hợp linh hoạt đấu tranh quân sự, chính trị, đối ngoại của Đảng Cộng sản Việt Nam trong kháng chiến chống Mỹ, cứu nước.", ans: true },
+              { text: "c) Cuộc Tiến công chiến lược năm 1972 của quân Giải phóng miền Nam buộc Mỹ phải thừa nhận thất bại của chiến lược “Việt Nam hóa chiến tranh”.", ans: true },
+              { text: "d) Những thắng lợi quân sự, chính trị, đối ngoại của Việt Nam (1969 – 1973) cho thấy sự nghiệp cách mạng muốn thành công chỉ cần dựa vào sức mạnh nội lực.", ans: false }
+            ],
+            explain: "a) Đúng | b) Đúng | c) Đúng | d) Sai (Cần kết hợp sức mạnh dân tộc và sức mạnh thời đại)."
+          },
+          {
+            passage: `Cho bảng số liệu sau:
+              <table class="data-table">
+                <tr><th>Năm / Tỷ trọng ngành (%)</th><th>1986</th><th>1996</th><th>2020</th></tr>
+                <tr><td>Nông, lâm nghiệp và thủy sản</td><td>38,06%</td><td>27,76%</td><td>12,66%</td></tr>
+                <tr><td>Công nghiệp và xây dựng</td><td>28,88%</td><td>29,73%</td><td>36,74%</td></tr>
+                <tr><td>Dịch vụ</td><td>33,06%</td><td>42,51%</td><td>41,83%</td></tr>
+                <tr><td>Thuế sản phẩm trừ trợ cấp sản phẩm</td><td>-</td><td>-</td><td>8,77%</td></tr>
+              </table>`,
+            source: "Tổng cục Thống kê, Niên giám thống kê Việt Nam qua các thời kỳ, NXB Thống kê, Hà Nội",
+            items: [
+              { text: "a) Từ năm 1986 đến năm 2020, nền kinh tế Việt Nam chuyển dịch từ nền kinh tế nông nghiệp sang nền kinh tế công nghiệp – dịch vụ.", ans: true },
+              { text: "b) Từ năm 2020, Việt Nam trở thành một trong những quốc gia có nền công nghiệp phát triển nhất Đông Nam Á.", ans: false },
+              { text: "c) Cơ cấu kinh tế Việt Nam từ năm 1986 đến năm 2020 chuyển dịch theo hướng công nghiệp hóa, hiện đại hóa.", ans: true },
+              { text: "d) Những số liệu trên phản ánh thành tựu kinh tế của công cuộc đổi mới ở Việt Nam từ năm 1986 đến năm 2020.", ans: true }
+            ],
+            explain: "a) Đúng | b) Sai (Việt Nam là nước đang phát triển) | c) Đúng | d) Đúng."
+          },
+          {
+            passage: `“Vào giữa năm 1920, Nguyễn Ái Quốc đọc bản sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa của Lênin đăng trên báo Nhân đạo – cơ quan trung ương của Đảng Cộng sản Pháp. Người cảm thấy vô cùng phấn khởi, tin tưởng và muốn nói to lên như đang nói trước quần chúng đông đảo: “Hỡi đồng bào bị đọa đày đau khổ! Đây là cái cần thiết cho chúng ta, đây là con đường giải phóng chúng ta””.`,
+            source: "Đinh Xuân Lâm (Chủ biên), Đại cương Lịch sử Việt Nam, Tập II, NXB Giáo dục, Hà Nội, 2002, tr.244",
+            items: [
+              { text: "a) Giữa năm 1920, Nguyễn Ái Quốc đã tìm thấy con đường cứu nước phù hợp cho dân tộc Việt Nam.", ans: true },
+              { text: "b) Con đường cứu nước mà Nguyễn Ái Quốc truyền bá vào Việt Nam là con đường “Cách mạng vô sản”.", ans: true },
+              { text: "c) Giữa năm 1920, phong trào cách mạng Việt Nam đã chấm dứt khủng hoảng về đường lối cứu nước và giai cấp lãnh đạo.", ans: false },
+              { text: "d) Đầu thế kỉ XX, Nguyễn Ái Quốc cùng với Phan Bội Châu, Phan Châu Trinh đã tìm thấy con đường cứu nước.", ans: false }
+            ],
+            explain: "a) Đúng | b) Đúng | c) Sai (Năm 1930 thành lập Đảng mới chính thức chấm dứt khủng hoảng) | d) Sai (Nguyễn Ái Quốc đi đường riêng độc lập với hai cụ)."
+          }
+        ]
+      }
+    ];
+
+    // TRẠNG THÁI ỨNG DỤNG
+    let currentExamIdx = 0;
+    let userP1 = new Array(24).fill(null);
+    let userP2 = Array.from({ length: 4 }, () => [null, null, null, null]);
+    let isSubmitted = false;
+
+    // ĐỒNG HỒ ĐẾM NGƯỢC (50 PHÚT = 3000 GIÂY)
+    const TOTAL_SECONDS = 50 * 60;
+    let remainingSeconds = TOTAL_SECONDS;
+    let timerInterval = null;
+    let isTimerRunning = false;
+
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60).toString().padStart(2, '0');
+      const s = (sec % 60).toString().padStart(2, '0');
+      return `${m}:${s}`;
+    }
+
+    function updateTimerUI() {
+      const el = document.getElementById('timer-display');
+      el.textContent = `⏱ ${formatTime(remainingSeconds)}`;
+      if (remainingSeconds <= 300 && remainingSeconds > 0) {
+        el.classList.add('urgent');
+      } else {
+        el.classList.remove('urgent');
+      }
+    }
+
+    function startTimerAuto() {
+      if (isTimerRunning || isSubmitted) return;
+      isTimerRunning = true;
+      document.getElementById('btn-start').textContent = 'Đang làm bài...';
+      timerInterval = setInterval(() => {
+        if (remainingSeconds > 0) {
+          remainingSeconds--;
+          updateTimerUI();
+        } else {
+          clearInterval(timerInterval);
+          isTimerRunning = false;
+          alert('Đã hết 50 phút làm bài! Hệ thống sẽ tự động nộp bài và chấm điểm.');
+          submitExam(true);
+        }
+      }, 1000);
+    }
+
+    function toggleTimer() {
+      if (isSubmitted) return;
+      if (!isTimerRunning) {
+        startTimerAuto();
+      } else {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        document.getElementById('btn-start').textContent = 'Tiếp tục tính giờ';
+      }
+    }
+
+    function stopTimer() {
+      clearInterval(timerInterval);
+      isTimerRunning = false;
+    }
+
+    // TẢI ĐỀ THI
+    function loadExam(idx) {
+      currentExamIdx = idx;
+      document.querySelectorAll('.exam-tab').forEach((tab, i) => {
+        tab.classList.toggle('active', i === idx);
+      });
+      resetCurrentExam();
+    }
+
+    function resetCurrentExam() {
+      stopTimer();
+      remainingSeconds = TOTAL_SECONDS;
+      updateTimerUI();
+      document.getElementById('btn-start').textContent = 'Bắt đầu tính giờ';
+      document.getElementById('btn-start').disabled = false;
+      document.getElementById('btn-submit').disabled = false;
+
+      userP1 = new Array(24).fill(null);
+      userP2 = Array.from({ length: 4 }, () => [null, null, null, null]);
+      isSubmitted = false;
+
+      document.getElementById('result-card').classList.remove('show');
+      const exam = EXAMS_DATA[currentExamIdx];
+      document.getElementById('exam-title').textContent = exam.title;
+
+      renderQuestions();
+      renderPalette();
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderQuestions() {
+      const exam = EXAMS_DATA[currentExamIdx];
+      const letters = ['A', 'B', 'C', 'D'];
+      let html = `<div class="part-title">PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn (24 câu - 6,0 điểm)</div>`;
+
+      exam.part1.forEach((item, qIdx) => {
+        html += `
+          <div class="q-card" id="p1-q-${qIdx}">
+            <div class="q-title"><span class="q-level">${item.lv}</span>Câu ${qIdx + 1}: ${item.q}</div>
+            <div class="options-grid">
+              ${item.opts.map((optText, oIdx) => `
+                <div class="opt-label" id="p1-opt-${qIdx}-${oIdx}" onclick="selectP1(${qIdx}, ${oIdx})">
+                  <span class="opt-badge">${letters[oIdx]}</span>
+                  <span>${optText}</span>
+                </div>
+              `).join('')}
+            </div>
+            <div class="explain-box" id="p1-exp-${qIdx}"></div>
+          </div>
+        `;
+      });
+
+      html += `<div class="part-title">PHẦN II. Câu trắc nghiệm đúng sai (4 câu - 4,0 điểm)</div>`;
+
+      exam.part2.forEach((item, qIdx) => {
+        html += `
+          <div class="q-card" id="p2-q-${qIdx}">
+            <div class="q-title">Câu ${qIdx + 1}: Đọc tư liệu sau đây và chọn Đúng hoặc Sai cho mỗi ý a, b, c, d:</div>
+            <div class="passage-box">
+              ${item.passage}
+              <span class="passage-source">(Nguồn: ${item.source})</span>
+            </div>
+            ${item.items.map((sub, sIdx) => `
+              <div class="tf-row" id="p2-row-${qIdx}-${sIdx}">
+                <div class="tf-text">${sub.text}</div>
+                <div class="tf-btns">
+                  <button type="button" class="tf-btn" id="p2-btn-${qIdx}-${sIdx}-true" onclick="selectP2(${qIdx}, ${sIdx}, true)">Đúng</button>
+                  <button type="button" class="tf-btn" id="p2-btn-${qIdx}-${sIdx}-false" onclick="selectP2(${qIdx}, ${sIdx}, false)">Sai</button>
+                </div>
+              </div>
+            `).join('')}
+            <div class="explain-box" id="p2-exp-${qIdx}"><strong>Đáp án & Giải thích:</strong> ${item.explain}</div>
+          </div>
+        `;
+      });
+
+      document.getElementById('questions-area').innerHTML = html;
+    }
+
+    function renderPalette() {
+      const p1Container = document.getElementById('palette-p1');
+      p1Container.innerHTML = Array.from({ length: 24 }, (_, i) =>
+        `<button class="pal-btn" id="pal-p1-${i}" onclick="jumpTo('p1-q-${i}')">${i + 1}</button>`
+      ).join('');
+
+      const p2Container = document.getElementById('palette-p2');
+      p2Container.innerHTML = Array.from({ length: 4 }, (_, i) =>
+        `<button class="pal-btn" id="pal-p2-${i}" onclick="jumpTo('p2-q-${i}')">II.${i + 1}</button>`
+      ).join('');
+    }
+
+    function jumpTo(elementId) {
+      const el = document.getElementById(elementId);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function selectP1(qIdx, oIdx) {
+      if (isSubmitted) return;
+      if (!isTimerRunning) startTimerAuto();
+
+      userP1[qIdx] = oIdx;
+      for (let i = 0; i < 4; i++) {
+        const el = document.getElementById(`p1-opt-${qIdx}-${i}`);
+        el.classList.toggle('selected', i === oIdx);
+      }
+      document.getElementById(`pal-p1-${qIdx}`).classList.add('done');
+      updateProgress();
+    }
+
+    function selectP2(qIdx, sIdx, val) {
+      if (isSubmitted) return;
+      if (!isTimerRunning) startTimerAuto();
+
+      userP2[qIdx][sIdx] = val;
+      const btnT = document.getElementById(`p2-btn-${qIdx}-${sIdx}-true`);
+      const btnF = document.getElementById(`p2-btn-${qIdx}-${sIdx}-false`);
+
+      btnT.classList.toggle('active-true', val === true);
+      btnF.classList.toggle('active-false', val === false);
+
+      const palBtn = document.getElementById(`pal-p2-${qIdx}`);
+      const answeredSub = userP2[qIdx].filter(v => v !== null).length;
+      palBtn.classList.remove('done', 'partial');
+      if (answeredSub === 4) {
+        palBtn.classList.add('done');
+      } else if (answeredSub > 0) {
+        palBtn.classList.add('partial');
+      }
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const p1Done = userP1.filter(v => v !== null).length;
+      const p2Done = userP2.filter(arr => arr.every(v => v !== null)).length;
+      document.getElementById('progress-text').textContent = `${p1Done + p2Done} / 28`;
+    }
+
+    // CHẤM ĐIỂM CHUẨN QUY CHẾ THPT
+    function submitExam(isAuto = false) {
+      if (isSubmitted) return;
+
+      const p1Done = userP1.filter(v => v !== null).length;
+      const p2SubDone = userP2.flat().filter(v => v !== null).length;
+      const totalSub = p1Done + p2SubDone;
+
+      if (!isAuto && totalSub < 40) {
+        const ok = confirm(`Em mới hoàn thành ${totalSub}/40 ý trắc nghiệm. Em có chắc chắn muốn nộp bài ngay không?`);
+        if (!ok) return;
+      }
+
+      isSubmitted = true;
+      stopTimer();
+      document.getElementById('btn-start').disabled = true;
+      document.getElementById('btn-submit').disabled = true;
+
+      const exam = EXAMS_DATA[currentExamIdx];
+      const letters = ['A', 'B', 'C', 'D'];
+
+      // 1. Chấm Phần I (0.25đ / câu)
+      let p1CorrectCount = 0;
+      exam.part1.forEach((item, qIdx) => {
+        const chosen = userP1[qIdx];
+        const correct = item.ans;
+        const palBtn = document.getElementById(`pal-p1-${qIdx}`);
+        const expBox = document.getElementById(`p1-exp-${qIdx}`);
+
+        for (let i = 0; i < 4; i++) {
+          const optEl = document.getElementById(`p1-opt-${qIdx}-${i}`);
+          optEl.classList.add('locked');
+          if (i === correct) optEl.classList.add('correct-ans');
+          if (chosen === i && chosen !== correct) optEl.classList.add('wrong-ans');
+        }
+
+        if (chosen === correct) {
+          p1CorrectCount++;
+          palBtn.classList.add('pal-ok');
+          expBox.innerHTML = `<strong style="color:#137333;">✔ Chính xác!</strong> Đáp án đúng là <strong>${letters[correct]}</strong> (+0,25 điểm).`;
+        } else {
+          palBtn.classList.add('pal-err');
+          const yourChoice = chosen !== null ? letters[chosen] : "Bỏ trống";
+          expBox.innerHTML = `<strong style="color:#C5221F;">✘ Chưa đúng</strong> (Em chọn: ${yourChoice}). Đáp án đúng là <strong>${letters[correct]}</strong>.`;
+        }
+        expBox.classList.add('show');
+      });
+
+      const scoreP1 = p1CorrectCount * 0.25;
+
+      // 2. Chấm Phần II (Lũy tiến: 1 ý = 0.1; 2 ý = 0.25; 3 ý = 0.5; 4 ý = 1.0)
+      const p2Scale = [0, 0.1, 0.25, 0.5, 1.0];
+      let scoreP2 = 0;
+
+      exam.part2.forEach((item, qIdx) => {
+        let subCorrect = 0;
+        item.items.forEach((sub, sIdx) => {
+          const chosen = userP2[qIdx][sIdx];
+          const correct = sub.ans;
+          const row = document.getElementById(`p2-row-${qIdx}-${sIdx}`);
+          const btnT = document.getElementById(`p2-btn-${qIdx}-${sIdx}-true`);
+          const btnF = document.getElementById(`p2-btn-${qIdx}-${sIdx}-false`);
+
+          btnT.disabled = true;
+          btnF.disabled = true;
+
+          if (correct === true) btnT.classList.add('ans-right');
+          if (correct === false) btnF.classList.add('ans-right');
+
+          if (chosen === correct) {
+            subCorrect++;
+            row.classList.add('row-ok');
+          } else {
+            row.classList.add('row-err');
+            if (chosen === true) btnT.classList.add('ans-wrong');
+            if (chosen === false) btnF.classList.add('ans-wrong');
+          }
+        });
+
+        const qScore = p2Scale[subCorrect];
+        scoreP2 += qScore;
+
+        const palBtn = document.getElementById(`pal-p2-${qIdx}`);
+        if (subCorrect === 4) {
+          palBtn.classList.add('pal-ok');
+        } else {
+          palBtn.classList.add('pal-err');
+        }
+
+        const expBox = document.getElementById(`p2-exp-${qIdx}`);
+        expBox.innerHTML = `<strong>Kết quả câu ${qIdx + 1}: Đúng ${subCorrect}/4 ý (+${qScore.toFixed(2).replace(/\.00$/, '.0')} điểm)</strong><br>${item.explain}`;
+        expBox.classList.add('show');
+      });
+
+      const totalScore = scoreP1 + scoreP2;
+      const timeSpent = TOTAL_SECONDS - remainingSeconds;
+
+      document.getElementById('res-exam-title').textContent = exam.title;
+      document.getElementById('res-total').textContent = `${totalScore.toFixed(2)} / 10`;
+      document.getElementById('res-p1').textContent = `${scoreP1.toFixed(2)} / 6.0`;
+      document.getElementById('res-p2').textContent = `${scoreP2.toFixed(2)} / 4.0`;
+      document.getElementById('res-time').textContent = formatTime(timeSpent);
+
+      const resCard = document.getElementById('result-card');
+      resCard.classList.add('show');
+      resCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Khởi chạy Đề 01 khi mở trang
+    loadExam(0);
+  </script>
+</body>
+</html>
